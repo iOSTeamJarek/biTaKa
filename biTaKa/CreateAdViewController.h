@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface CreateAdViewController : NSObject
+@interface CreateAdViewController : UIViewController
 
 @end

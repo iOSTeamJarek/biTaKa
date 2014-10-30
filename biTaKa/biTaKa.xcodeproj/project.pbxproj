@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84AAFF5919FFB192004564AF /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5819FFB192004564AF /* RegisterViewController.m */; };
+		84AAFF5C19FFB1CF004564AF /* CreateAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5B19FFB1CF004564AF /* CreateAdViewController.m */; };
+		84AAFF5F19FFB1FB004564AF /* MainAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */; };
 		84B78AF719FEBE9700F35145 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AF619FEBE9700F35145 /* main.m */; };
 		84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AF919FEBE9800F35145 /* AppDelegate.m */; };
 		84B78AFD19FEBE9800F35145 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AFC19FEBE9800F35145 /* ViewController.m */; };
@@ -27,6 +30,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84AAFF5719FFB192004564AF /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = biTaKa/RegisterViewController.h; sourceTree = "<group>"; };
+		84AAFF5819FFB192004564AF /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = biTaKa/RegisterViewController.m; sourceTree = "<group>"; };
+		84AAFF5A19FFB1CF004564AF /* CreateAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAdViewController.h; sourceTree = "<group>"; };
+		84AAFF5B19FFB1CF004564AF /* CreateAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAdViewController.m; sourceTree = "<group>"; };
+		84AAFF5D19FFB1FB004564AF /* MainAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainAdViewController.h; sourceTree = "<group>"; };
+		84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainAdViewController.m; sourceTree = "<group>"; };
 		84B78AF119FEBE9700F35145 /* biTaKa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = biTaKa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B78AF519FEBE9700F35145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B78AF619FEBE9700F35145 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,9 +69,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84AAFF5219FFB03A004564AF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				84AAFF5719FFB192004564AF /* RegisterViewController.h */,
+				84AAFF5819FFB192004564AF /* RegisterViewController.m */,
+				84AAFF5A19FFB1CF004564AF /* CreateAdViewController.h */,
+				84AAFF5B19FFB1CF004564AF /* CreateAdViewController.m */,
+				84AAFF5D19FFB1FB004564AF /* MainAdViewController.h */,
+				84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		84B78AE819FEBE9700F35145 = {
 			isa = PBXGroup;
 			children = (
+				84AAFF5219FFB03A004564AF /* ViewModels */,
 				84B78AF319FEBE9700F35145 /* biTaKa */,
 				84B78B0D19FEBE9900F35145 /* biTaKaTests */,
 				84B78AF219FEBE9700F35145 /* Products */,
@@ -219,9 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84AAFF5F19FFB1FB004564AF /* MainAdViewController.m in Sources */,
 				84B78AFD19FEBE9800F35145 /* ViewController.m in Sources */,
 				84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,
+				84AAFF5919FFB192004564AF /* RegisterViewController.m in Sources */,
+				84AAFF5C19FFB1CF004564AF /* CreateAdViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +440,7 @@
 				84B78B1619FEBE9900F35145 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		84B78B1719FEBE9900F35145 /* Build configuration list for PBXNativeTarget "biTaKaTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +449,7 @@
 				84B78B1919FEBE9900F35145 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

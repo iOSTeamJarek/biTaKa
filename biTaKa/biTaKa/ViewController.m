@@ -10,9 +10,35 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextField *username;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+
 @end
 
 @implementation ViewController
+
+- (IBAction)login:(id)sender {
+    NSString *username = self.username.text;
+    NSString *password = self.password.text;
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                    message: [[NSMutableString alloc]initWithFormat: @"%@ %@",username, password]
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil];
+    [alert show];
+    
+    [self.username resignFirstResponder];
+}
+
+- (IBAction)register:(id)sender {
+    
+}
+
+-(void)touchesBegan:(NSSet *)touches
+          withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

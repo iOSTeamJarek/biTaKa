@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface RegisterViewController : NSObject
+@interface RegisterViewController : UIViewController
 
 @end
