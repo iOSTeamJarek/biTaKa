@@ -10,9 +10,6 @@
 
 @interface RegisterViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
-
 @end
 
 @implementation RegisterViewController
@@ -23,7 +20,7 @@
     NSString *password = self.password.text;
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: username
+                                                    message: [NSString stringWithFormat:@"username: %@ password: %@",username, password]
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles: nil];
