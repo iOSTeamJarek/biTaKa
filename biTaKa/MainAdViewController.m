@@ -7,6 +7,7 @@
 //
 
 #import "MainAdViewController.h"
+#import <Parse/Parse.h>
 
 @interface MainAdViewController ()
 
@@ -16,7 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // to test parse
+    
+//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+//    testObject[@"foo"] = @"bar";
+//    [testObject saveInBackground];
 }
 
 - (void)didReceiveMemoryWarning {

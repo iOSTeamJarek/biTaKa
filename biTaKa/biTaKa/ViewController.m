@@ -10,9 +10,6 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
-
 @end
 
 @implementation ViewController
@@ -42,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"biTaKa";
     // Do any additional setup after loading the view, typically from a nib.
 }
 

@@ -12,7 +12,8 @@
 @interface CreateAdViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIPickerView *category;
-@property (weak, nonatomic) IBOutlet UITextView *adDescription;
+@property (weak, nonatomic) IBOutlet UITextView *addDescription;
+@property (weak, nonatomic) IBOutlet UIButton *addPicture;
 @property (weak, nonatomic) IBOutlet UITextField *price;
 
 @end
