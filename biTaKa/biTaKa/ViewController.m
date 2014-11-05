@@ -18,7 +18,20 @@
 - (IBAction)login:(id)sender {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
-        
+    
+    [PFUser logInWithUsernameInBackground:username password:password
+                                    block:^(PFUser *user, NSError *error) {
+                                        if (user) {
+                                            [self alertMessage:@"Succesfull login."];
+                                            // todo clear segue and manual
+                                        } else {
+                                            // The login failed. Check error to see why.
+                                            //NSString *errorString = [error userInfo][@"error"];
+                                            [self alertMessage:[NSString stringWithFormat:@"Login failed"]];
+                                            // todo return to login
+                                        }
+                                    }];
+    
     [self.username resignFirstResponder];
 }
 

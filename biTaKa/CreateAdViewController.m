@@ -14,8 +14,29 @@
 
 @implementation CreateAdViewController
 
+//- (IBAction)addPicture:(id)sender {
+//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        picker.delegate = self;
+//        [self presentModalViewController:picker animated:YES];
+//}
+
+//- (void)imagePickerController:(UIImagePickerController *)picker
+//            didFinishPickingImage:(UIImage *)image
+//                      editingInfo:(NSDictionary *)editingInfo
+//{
+//    imageView.image = image;
+//    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
+//}
+
 - (IBAction)postButton:(id)sender {
-    // todo
+    Item *item = [Item new];
+    //item.filename = ...
+    item.itemCategory = self.addCategory.text;
+    item.itemDescription = self.addDescription.text;
+    item.price = (__bridge NSDecimal *)(self.price.text);
+    
+    [self.delegate addItem:item];
 }
 
 - (void)viewDidLoad {

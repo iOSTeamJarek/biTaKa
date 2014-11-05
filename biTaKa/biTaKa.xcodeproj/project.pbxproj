@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848B61241A0A7E4800ED72BD /* MainAdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */; };
+		848B61261A0A82F900ED72BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848B61251A0A82F900ED72BD /* Main.storyboard */; };
 		84A5441B1A07C954006CF824 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A544181A07C954006CF824 /* Bolts.framework */; };
 		84A5441C1A07C954006CF824 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A544191A07C954006CF824 /* Parse.framework */; };
 		84A5441D1A07C954006CF824 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A5441A1A07C954006CF824 /* ParseFacebookUtils.framework */; };
@@ -22,7 +24,6 @@
 		84A544311A07CA8B006CF824 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A5442E1A07CA8B006CF824 /* SystemConfiguration.framework */; };
 		84A544341A07D5CC006CF824 /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A544331A07D5CC006CF824 /* ItemTableViewCell.m */; };
 		84A5CDE71A0A243400A11772 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5CDE61A0A243400A11772 /* Item.m */; };
-		84A5CDE81A0A2C1F00A11772 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84B78AFE19FEBE9800F35145 /* Main.storyboard */; };
 		84AAFF5919FFB192004564AF /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5819FFB192004564AF /* RegisterViewController.m */; };
 		84AAFF5C19FFB1CF004564AF /* CreateAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5B19FFB1CF004564AF /* CreateAdViewController.m */; };
 		84AAFF5F19FFB1FB004564AF /* MainAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */; };
@@ -45,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		848B61221A0A7E4800ED72BD /* MainAdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainAdTableViewController.h; sourceTree = "<group>"; };
+		848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainAdTableViewController.m; sourceTree = "<group>"; };
+		848B61251A0A82F900ED72BD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84A544181A07C954006CF824 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
 		84A544191A07C954006CF824 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../parse-library-1.4.2/Parse.framework"; sourceTree = "<group>"; };
 		84A5441A1A07C954006CF824 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../../parse-library-1.4.2/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
@@ -75,7 +79,6 @@
 		84B78AF919FEBE9800F35145 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		84B78AFB19FEBE9800F35145 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		84B78AFC19FEBE9800F35145 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		84B78AFF19FEBE9800F35145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84B78B0119FEBE9800F35145 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		84B78B0419FEBE9800F35145 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		84B78B0A19FEBE9900F35145 /* biTaKaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biTaKaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,6 +157,8 @@
 				84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */,
 				84A544321A07D5CB006CF824 /* ItemTableViewCell.h */,
 				84A544331A07D5CC006CF824 /* ItemTableViewCell.m */,
+				848B61221A0A7E4800ED72BD /* MainAdTableViewController.h */,
+				848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -186,10 +191,10 @@
 				84B78AF919FEBE9800F35145 /* AppDelegate.m */,
 				84B78AFB19FEBE9800F35145 /* ViewController.h */,
 				84B78AFC19FEBE9800F35145 /* ViewController.m */,
-				84B78AFE19FEBE9800F35145 /* Main.storyboard */,
 				84B78B0119FEBE9800F35145 /* Images.xcassets */,
 				84B78B0319FEBE9800F35145 /* LaunchScreen.xib */,
 				84B78AF419FEBE9700F35145 /* Supporting Files */,
+				848B61251A0A82F900ED72BD /* Main.storyboard */,
 			);
 			path = biTaKa;
 			sourceTree = "<group>";
@@ -300,7 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84A5CDE81A0A2C1F00A11772 /* Main.storyboard in Resources */,
+				848B61261A0A82F900ED72BD /* Main.storyboard in Resources */,
 				84B78B0519FEBE9800F35145 /* LaunchScreen.xib in Resources */,
 				84B78B0219FEBE9800F35145 /* Images.xcassets in Resources */,
 			);
@@ -322,6 +327,7 @@
 			files = (
 				84A5CDE71A0A243400A11772 /* Item.m in Sources */,
 				84AAFF5F19FFB1FB004564AF /* MainAdViewController.m in Sources */,
+				848B61241A0A7E4800ED72BD /* MainAdTableViewController.m in Sources */,
 				84B78AFD19FEBE9800F35145 /* ViewController.m in Sources */,
 				84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,
@@ -350,14 +356,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		84B78AFE19FEBE9800F35145 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84B78AFF19FEBE9800F35145 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		84B78B0319FEBE9800F35145 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

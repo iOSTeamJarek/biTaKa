@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "CreateAdViewController.h"
 
-@interface MainAdViewController : UIViewController
+@interface MainAdViewController : UIViewController<CreateAdViewControllerDelegate>
 
 @end
