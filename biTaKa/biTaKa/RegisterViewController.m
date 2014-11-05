@@ -7,6 +7,7 @@
 //
 
 #import "RegisterViewController.h"
+#import "Parse/Parse.h"
 
 @interface RegisterViewController ()
 
@@ -14,18 +15,23 @@
 
 @implementation RegisterViewController
 
+- (IBAction)registerBtn:(id)sender {
+    [self registerMethod];
+}
 
-- (IBAction)register:(id)sender {
-    NSString *username = self.username.text;
-    NSString *password = self.password.text;
+- (void)registerMethod {
+    PFUser *user = [PFUser user];
+    user.username = self.username.text;
+    user.password = self.password.text;
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: [NSString stringWithFormat:@"username: %@ password: %@",username, password]
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
-    [alert show];
-
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            [self alertMessage:@"You are registered!!!"];
+        } else {
+            NSString *errorString = [error userInfo][@"error"];
+            [self alertMessage:errorString];
+        }
+    }];
 }
 
 - (void)viewDidLoad {
@@ -36,6 +42,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)alertMessage:(NSString*)message {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                        message: message
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles: nil];
+        [alert show];
 }
 
 @end

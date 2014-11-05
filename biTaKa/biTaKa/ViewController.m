@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Parse/Parse.h"
 
 @interface ViewController ()
 
@@ -17,18 +18,15 @@
 - (IBAction)login:(id)sender {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: [[NSMutableString alloc]initWithFormat: @"%@ %@",username, password]
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
-    [alert show];
-    
+        
     [self.username resignFirstResponder];
 }
 
-- (IBAction)register:(id)sender {
+- (IBAction)registerBtn:(id)sender {
+    
+}
+
+- (IBAction)guestBtn:(id)sender {
     
 }
 
@@ -41,12 +39,22 @@
     [super viewDidLoad];
     
     self.title = @"biTaKa";
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)alertMessage:(NSString*)message {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                    message: message
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles: nil];
+    [alert show];
 }
 
 @end
