@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Parse/Parse.h"
+#import "MainAdViewController.h"
 
 @interface ViewController ()
 
@@ -23,6 +24,7 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self alertMessage:@"Succesfull login."];
+                                            //[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:3] animated:YES];
                                             // todo clear segue and manual
                                         } else {
                                             // The login failed. Check error to see why.

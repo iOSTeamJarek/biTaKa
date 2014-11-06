@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Parse/Parse.h"
 
-@interface Item : NSObject
+@interface Item : PFObject<PFSubclassing>
 
-@property (nonatomic) NSString *filename;
+@property (nonatomic) UIImage *imageOfItem;
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;
-@property (nonatomic) NSDecimal *price;
+@property (nonatomic) NSString *price;
 
 @end

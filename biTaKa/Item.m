@@ -8,6 +8,21 @@
 
 #import "Item.h"
 
-@implementation Item
+@implementation Item{
+    
+}
+
+@dynamic imageOfItem;
+@dynamic itemCategory;
+@dynamic itemDescription;
+@dynamic price;
+
++(NSString *)parseClassName{
+    return @"Item";
+}
+
++(void)load{
+    [self registerSubclass];
+}
 
 @end

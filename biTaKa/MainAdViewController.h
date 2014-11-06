@@ -10,6 +10,9 @@
 #import <UIKit/UIKit.h>
 #import "CreateAdViewController.h"
 
-@interface MainAdViewController : UIViewController<CreateAdViewControllerDelegate>
+@interface MainAdViewController : UIViewController<CreateAdViewControllerDelegate, UITableViewDataSource, UITabBarDelegate>
+
+@property (nonatomic) NSMutableArray *items;
+@property (weak, nonatomic) IBOutlet UITableView *itemTableView;
 
 @end

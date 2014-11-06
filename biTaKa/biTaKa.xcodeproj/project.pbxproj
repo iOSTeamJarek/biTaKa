@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		848B61241A0A7E4800ED72BD /* MainAdTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */; };
+		843121F41A0BBDF8004E1D4F /* interior.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 843121F31A0BBDF8004E1D4F /* interior.jpeg */; };
 		848B61261A0A82F900ED72BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848B61251A0A82F900ED72BD /* Main.storyboard */; };
 		84A5441B1A07C954006CF824 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A544181A07C954006CF824 /* Bolts.framework */; };
 		84A5441C1A07C954006CF824 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A544191A07C954006CF824 /* Parse.framework */; };
@@ -46,8 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		848B61221A0A7E4800ED72BD /* MainAdTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainAdTableViewController.h; sourceTree = "<group>"; };
-		848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainAdTableViewController.m; sourceTree = "<group>"; };
+		843121F31A0BBDF8004E1D4F /* interior.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = interior.jpeg; path = ../../../audi/interior.jpeg; sourceTree = "<group>"; };
 		848B61251A0A82F900ED72BD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84A544181A07C954006CF824 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../parse-library-1.4.2/Bolts.framework"; sourceTree = "<group>"; };
 		84A544191A07C954006CF824 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../parse-library-1.4.2/Parse.framework"; sourceTree = "<group>"; };
@@ -117,6 +116,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843121E91A0BBD1B004E1D4F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				843121F31A0BBDF8004E1D4F /* interior.jpeg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		84A544171A07C87B006CF824 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +164,6 @@
 				84AAFF5E19FFB1FB004564AF /* MainAdViewController.m */,
 				84A544321A07D5CB006CF824 /* ItemTableViewCell.h */,
 				84A544331A07D5CC006CF824 /* ItemTableViewCell.m */,
-				848B61221A0A7E4800ED72BD /* MainAdTableViewController.h */,
-				848B61231A0A7E4800ED72BD /* MainAdTableViewController.m */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 		84B78AE819FEBE9700F35145 = {
 			isa = PBXGroup;
 			children = (
+				843121E91A0BBD1B004E1D4F /* Images */,
 				84A5CDE41A0A241600A11772 /* Models */,
 				84A544171A07C87B006CF824 /* Frameworks */,
 				84AAFF5219FFB03A004564AF /* ViewModels */,
@@ -306,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				848B61261A0A82F900ED72BD /* Main.storyboard in Resources */,
+				843121F41A0BBDF8004E1D4F /* interior.jpeg in Resources */,
 				84B78B0519FEBE9800F35145 /* LaunchScreen.xib in Resources */,
 				84B78B0219FEBE9800F35145 /* Images.xcassets in Resources */,
 			);
@@ -327,7 +334,6 @@
 			files = (
 				84A5CDE71A0A243400A11772 /* Item.m in Sources */,
 				84AAFF5F19FFB1FB004564AF /* MainAdViewController.m in Sources */,
-				848B61241A0A7E4800ED72BD /* MainAdTableViewController.m in Sources */,
 				84B78AFD19FEBE9800F35145 /* ViewController.m in Sources */,
 				84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,

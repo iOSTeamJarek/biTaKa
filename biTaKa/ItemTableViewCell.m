@@ -11,12 +11,16 @@
 @implementation ItemTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
+    //self.cellItemDescription.text = [[self.items objectAtIndex:indexPath.row] description];
+    self.cellItemImage.image = [UIImage imageNamed:@"interior.jpeg"];
+    self.cellItemDescription.text = @"test";
+    self.cellItemPrice.text = @"150";
+//    self.cellImage.image = self.content.image;
     // Configure the view for the selected state
 }
 

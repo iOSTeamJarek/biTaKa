@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Item.h"
 
 @interface ItemTableViewCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UIImageView *cellItemImage;
+@property (weak, nonatomic) IBOutlet UILabel *cellItemDescription;
+@property (weak, nonatomic) IBOutlet UILabel *cellItemPrice;
 
 @end

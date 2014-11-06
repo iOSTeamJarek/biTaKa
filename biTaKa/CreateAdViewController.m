@@ -34,7 +34,7 @@
     //item.filename = ...
     item.itemCategory = self.addCategory.text;
     item.itemDescription = self.addDescription.text;
-    item.price = (__bridge NSDecimal *)(self.price.text);
+    item.price = self.price.text;
     
     [self.delegate addItem:item];
 }
