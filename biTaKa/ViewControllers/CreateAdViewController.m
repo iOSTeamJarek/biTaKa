@@ -34,7 +34,9 @@
     //item.filename = ...
     item.itemCategory = self.addCategory.text;
     item.itemDescription = self.addDescription.text;
-    item.price = self.price.text;
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    item.price = [f numberFromString: self.price.text];
     
     [self.delegate addItem:item];
 }
