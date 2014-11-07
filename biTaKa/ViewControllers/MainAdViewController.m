@@ -47,14 +47,14 @@
 static NSString* cellIdentifier = @"itemCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(!cell){
         cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    //cell.imageView.image = [self.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
-    cell.textLabel.text = [[[self.items objectAtIndex:indexPath.row] price] stringValue];
+    cell.cellItemImage.image = [UIImage imageNamed:@"interior.jpeg"];
+    cell.cellItemDescription.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Description"];
+    cell.cellItemPrice.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Price"];
     
     return cell;
 }
@@ -72,10 +72,6 @@ static NSString* cellIdentifier = @"itemCell";
             // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
             [[weakSelf itemTableView] reloadData];
-
-//            for (PFObject *object in self.items) {
-//                NSLog(@"%@", object);
-//            }
 
         } else {
             // Log details of the failure
@@ -134,6 +130,7 @@ static NSString* cellIdentifier = @"itemCell";
     [parseObject saveInBackground];
     
     [self alertMessage:@"item added"];
+    //[[self itemTableView] reloadData];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

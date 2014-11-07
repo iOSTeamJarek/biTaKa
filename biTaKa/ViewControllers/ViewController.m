@@ -24,13 +24,15 @@
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self alertMessage:@"Succesfull login."];
-                                            //[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:3] animated:YES];
+                                            // move to MainAdViewController
+                                            
+//                                            MainAdViewController *vc = [[MainAdViewController alloc] init];
+//                                            [self.navigationController pushViewController: vc animated:YES]; 
                                             // todo clear segue and manual
                                         } else {
                                             // The login failed. Check error to see why.
                                             //NSString *errorString = [error userInfo][@"error"];
                                             [self alertMessage:[NSString stringWithFormat:@"Login failed"]];
-                                            // todo return to login
                                         }
                                     }];
     
