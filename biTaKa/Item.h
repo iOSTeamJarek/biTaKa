@@ -8,12 +8,20 @@
 
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
+#import "Picture.h"
 
 @interface Item : PFObject<PFSubclassing>
 
-@property (nonatomic) UIImage *imageOfItem;
+// for testing /musrt be a NSMutableArray
+@property (retain) Picture *pictureOne;
+@property (retain) Picture *pictureTwo;
+
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;
-@property (nonatomic) NSString *price;
+@property (nonatomic) NSNumber *price;
+@property (retain) PFUser *owner;
+
++(NSString *)parseClassName;
++(void)load;
 
 @end

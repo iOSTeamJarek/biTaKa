@@ -54,7 +54,7 @@ static NSString* cellIdentifier = @"itemCell";
     
     //cell.imageView.image = [self.items objectAtIndex:indexPath.row];
     cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
-    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] price];
+    cell.textLabel.text = [[[self.items objectAtIndex:indexPath.row] price] stringValue];
     
     return cell;
 }
@@ -68,7 +68,7 @@ static NSString* cellIdentifier = @"itemCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            NSLog(@"Successfully retrieved %ld scores.", objects.count);
             // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
             [[weakSelf itemTableView] reloadData];
