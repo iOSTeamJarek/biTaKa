@@ -27,13 +27,19 @@
     NSString *confirmPassword = self.confirmPassword.text;
     
     if(userName == nil || userName.length < 3){
-        [AlertUtility alertWith:@"Invalid username" message:@"Username must be at least 3 characters" andButton:@"OK"];
+        [AlertUtility alertWith:@"Invalid username"
+                        message:@"Username must be at least 3 characters"
+                        andButton:@"OK"];
     }
     else if(password == nil || password.length < 6){
-        [AlertUtility alertWith:@"Invalid password" message:@"Password must be at least 5 characters" andButton:@"OK"];
+        [AlertUtility alertWith:@"Invalid password"
+                        message:@"Password must be at least 5 characters"
+                        andButton:@"OK"];
     }
     else if (password == confirmPassword){
-        [AlertUtility alertWith:@"Password incorrect" message:@"Confirm password is not the same" andButton:@"OK"];
+        [AlertUtility alertWith:@"Password incorrect"
+                        message:@"Confirm password is not the same"
+                        andButton:@"OK"];
     }
     else{
         PFUser *user = [PFUser user];
@@ -42,12 +48,12 @@
 
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
-                NSLog(@"Registration success!");
+                //NSLog(@"Registration success!");
                 MainScreenViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
                 [self.navigationController pushViewController:loginVC animated:YES];
             }
             else {
-                NSLog(@"There was an error in registration");
+               // NSLog(@"There was an error in registration");
             }
         }];
     }

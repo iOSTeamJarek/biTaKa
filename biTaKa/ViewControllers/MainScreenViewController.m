@@ -51,6 +51,8 @@
     
 }
 
+
+
 -(void)touchesBegan:(NSSet *)touches
           withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -60,6 +62,7 @@
     [super viewDidLoad];
     
     self.title = @"biTaKa";
+    self.navigationItem.hidesBackButton = YES;
     
     // Do any additional setup after loading the view, typically from a nib.
 }
