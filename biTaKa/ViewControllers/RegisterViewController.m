@@ -8,6 +8,8 @@
 
 #import "RegisterViewController.h"
 #import "Parse/Parse.h"
+#import "AlertUtility.h"
+#import "ViewController.h"
 
 @interface RegisterViewController ()
 
@@ -20,18 +22,35 @@
 }
 
 - (void)registerMethod {
-    PFUser *user = [PFUser user];
-    user.username = self.username.text;
-    user.password = self.password.text;
+    NSString *userName = self.username.text;
+    NSString *password = self.password.text;
+    NSString *confirmPassword = self.confirmPassword.text;
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            [self alertMessage:@"You are registered!!!"];
-        } else {
-            NSString *errorString = [error userInfo][@"error"];
-            [self alertMessage:errorString];
-        }
-    }];
+    if(userName == nil || userName.length < 3){
+        [AlertUtility alertWith:@"Invalid username" message:@"Username must be at least 3 characters" andButton:@"OK"];
+    }
+    else if(password == nil || password.length < 6){
+        [AlertUtility alertWith:@"Invalid password" message:@"Password must be at least 5 characters" andButton:@"OK"];
+    }
+    else if (password == confirmPassword){
+        [AlertUtility alertWith:@"Password incorrect" message:@"Confirm password is not the same" andButton:@"OK"];
+    }
+    else{
+        PFUser *user = [PFUser user];
+        user.username = self.username.text;
+        user.password = self.password.text;
+
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                NSLog(@"Registration success!");
+                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+                [self.navigationController pushViewController:loginVC animated:YES];
+            }
+            else {
+                NSLog(@"There was an error in registration");
+            }
+        }];
+    }
 }
 
 - (void)viewDidLoad {

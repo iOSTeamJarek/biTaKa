@@ -35,6 +35,7 @@
 		84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AF919FEBE9800F35145 /* AppDelegate.m */; };
 		84B78B0219FEBE9800F35145 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B0119FEBE9800F35145 /* Images.xcassets */; };
 		84B78B1119FEBE9900F35145 /* biTaKaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B1019FEBE9900F35145 /* biTaKaTests.m */; };
+		AA128E751A0E42B200BA2532 /* AlertUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AA128E741A0E42B200BA2532 /* AlertUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		84B78B0A19FEBE9900F35145 /* biTaKaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biTaKaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B78B0F19FEBE9900F35145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B78B1019FEBE9900F35145 /* biTaKaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = biTaKaTests.m; sourceTree = "<group>"; };
+		AA128E731A0E42B200BA2532 /* AlertUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtility.h; sourceTree = "<group>"; };
+		AA128E741A0E42B200BA2532 /* AlertUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +177,6 @@
 			children = (
 				8478F33A1A0D1D5A00AA8E0F /* CategoryGroup.h */,
 				8478F33B1A0D1D5A00AA8E0F /* CategoryGroup.m */,
-				8478F33C1A0D1D5A00AA8E0F /* ImageUtility.h */,
-				8478F33D1A0D1D5A00AA8E0F /* ImageUtility.m */,
 				8478F33E1A0D1D5A00AA8E0F /* Picture.h */,
 				8478F33F1A0D1D5A00AA8E0F /* Picture.m */,
 				8478F32C1A0D16CF00AA8E0F /* Item.h */,
@@ -187,6 +188,7 @@
 		84B78AE819FEBE9700F35145 = {
 			isa = PBXGroup;
 			children = (
+				AA128E721A0E424F00BA2532 /* Utility */,
 				8478F3491A0D1DA400AA8E0F /* ViewControllers */,
 				843121E91A0BBD1B004E1D4F /* Images */,
 				84A5CDE41A0A241600A11772 /* Models */,
@@ -243,6 +245,17 @@
 				84B78B0F19FEBE9900F35145 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA128E721A0E424F00BA2532 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8478F33C1A0D1D5A00AA8E0F /* ImageUtility.h */,
+				8478F33D1A0D1D5A00AA8E0F /* ImageUtility.m */,
+				AA128E731A0E42B200BA2532 /* AlertUtility.h */,
+				AA128E741A0E42B200BA2532 /* AlertUtility.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +363,7 @@
 				8478F3401A0D1D5A00AA8E0F /* CategoryGroup.m in Sources */,
 				8478F3411A0D1D5A00AA8E0F /* ImageUtility.m in Sources */,
 				84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */,
+				AA128E751A0E42B200BA2532 /* AlertUtility.m in Sources */,
 				8478F3421A0D1D5A00AA8E0F /* Picture.m in Sources */,
 				8478F3541A0D1DA400AA8E0F /* CreateAdViewController.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,
