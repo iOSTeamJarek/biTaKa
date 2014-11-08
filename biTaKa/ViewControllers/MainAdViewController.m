@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import "Item.h"
 #import "ItemTableViewCell.h"
+#import "DetailsViewController.h"
 
 @interface MainAdViewController ()
 
@@ -41,20 +42,27 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.items.count;
+    return 10;
 }
 
 static NSString* cellIdentifier = @"itemCell";
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(!cell){
         cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
+<<<<<<< HEAD
+        
     //cell.imageView.image = [self.items objectAtIndex:indexPath.row];
-    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
-    cell.textLabel.text = [[[self.items objectAtIndex:indexPath.row] price] stringValue];
+//    cell.textLabel.text = [[self.items objectAtIndex:indexPath.row] description];
+//    cell.textLabel.text = [[[self.items objectAtIndex:indexPath.row] price] stringValue];
+=======
+    
+    cell.cellItemImage.image = [UIImage imageNamed:@"interior.jpeg"];
+    cell.cellItemDescription.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Description"];
+    cell.cellItemPrice.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Price"];
+>>>>>>> FETCH_HEAD
     
     return cell;
 }
@@ -63,20 +71,24 @@ static NSString* cellIdentifier = @"itemCell";
     [super viewDidLoad];
     
     __weak id weakSelf = self;
-
+    
     PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %i scores.", objects.count);
+            NSLog(@"Successfully retrieved %ld scores.", objects.count);
             // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
             [[weakSelf itemTableView] reloadData];
+<<<<<<< HEAD
+            
+            //            for (PFObject *object in self.items) {
+            //                NSLog(@"%@", object);
+            //            }
+            
+=======
 
-//            for (PFObject *object in self.items) {
-//                NSLog(@"%@", object);
-//            }
-
+>>>>>>> FETCH_HEAD
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -108,6 +120,11 @@ static NSString* cellIdentifier = @"itemCell";
             CreateAdViewController *destVC = segue.destinationViewController;
             destVC.delegate = self;
         }
+    }else if ([segue.identifier isEqualToString:@"toDetailView"]){
+        DetailsViewController *detailsVC = segue.destinationViewController;
+        ItemTableViewCell *cell = (ItemTableViewCell *) sender;
+        NSString *test = cell.cellItemDescription.text;
+        detailsVC.itemPrice.text = test;
     }
 }
 
@@ -134,6 +151,7 @@ static NSString* cellIdentifier = @"itemCell";
     [parseObject saveInBackground];
     
     [self alertMessage:@"item added"];
+    //[[self itemTableView] reloadData];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "Parse/Parse.h"
 #import "MainAdViewController.h"
+#import "AlertUtility.h"
 
 @interface ViewController ()
 
@@ -20,21 +21,44 @@
     NSString *username = self.username.text;
     NSString *password = self.password.text;
     
+<<<<<<< HEAD
+    if(username == nil || username.length < 3){
+        [AlertUtility alertWith:@"Invalid username" message:@"Username must be at least 3 characters" andButton:@"OK"];
+    }
+    else if(password == nil || password.length < 5){
+        [AlertUtility alertWith:@"Invalid password" message:@"Password must be at least 5 characters" andButton:@"OK"];
+    }
+    else{
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
+            if (error) {
+                [AlertUtility alertWith:@"Error occured!" message:@"Wrong username or password" andButton:@"OK"];
+            }
+            else if (user) {
+                MainAdViewController *mainLoggedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"logedMain"];
+                [self.navigationController pushViewController:mainLoggedVC animated:YES];
+                
+            }
+        }];
+    }
+=======
     [PFUser logInWithUsernameInBackground:username password:password
                                     block:^(PFUser *user, NSError *error) {
                                         if (user) {
                                             [self alertMessage:@"Succesfull login."];
-                                            //[self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:3] animated:YES];
+                                            // move to MainAdViewController
+                                            
+//                                            MainAdViewController *vc = [[MainAdViewController alloc] init];
+//                                            [self.navigationController pushViewController: vc animated:YES]; 
                                             // todo clear segue and manual
                                         } else {
                                             // The login failed. Check error to see why.
                                             //NSString *errorString = [error userInfo][@"error"];
                                             [self alertMessage:[NSString stringWithFormat:@"Login failed"]];
-                                            // todo return to login
                                         }
                                     }];
+>>>>>>> FETCH_HEAD
     
-    [self.username resignFirstResponder];
+  //  [self.username resignFirstResponder];
 }
 
 - (IBAction)registerBtn:(id)sender {

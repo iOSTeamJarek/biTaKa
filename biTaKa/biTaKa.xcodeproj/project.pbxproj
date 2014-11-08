@@ -35,6 +35,8 @@
 		84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78AF919FEBE9800F35145 /* AppDelegate.m */; };
 		84B78B0219FEBE9800F35145 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B0119FEBE9800F35145 /* Images.xcassets */; };
 		84B78B1119FEBE9900F35145 /* biTaKaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B1019FEBE9900F35145 /* biTaKaTests.m */; };
+		AA1377711A0D98170070DC76 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA1377701A0D98170070DC76 /* DetailsViewController.m */; };
+		AA5805271A0DC39600D19702 /* AlertUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5805261A0DC39600D19702 /* AlertUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,10 @@
 		84B78B0A19FEBE9900F35145 /* biTaKaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = biTaKaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		84B78B0F19FEBE9900F35145 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84B78B1019FEBE9900F35145 /* biTaKaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = biTaKaTests.m; sourceTree = "<group>"; };
+		AA13776F1A0D98170070DC76 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		AA1377701A0D98170070DC76 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		AA5805251A0DC39600D19702 /* AlertUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtility.h; sourceTree = "<group>"; };
+		AA5805261A0DC39600D19702 /* AlertUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,8 @@
 				8478F3511A0D1DA400AA8E0F /* RegisterViewController.m */,
 				8478F3521A0D1DA400AA8E0F /* ViewController.h */,
 				8478F3531A0D1DA400AA8E0F /* ViewController.m */,
+				AA13776F1A0D98170070DC76 /* DetailsViewController.h */,
+				AA1377701A0D98170070DC76 /* DetailsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -174,8 +182,6 @@
 			children = (
 				8478F33A1A0D1D5A00AA8E0F /* CategoryGroup.h */,
 				8478F33B1A0D1D5A00AA8E0F /* CategoryGroup.m */,
-				8478F33C1A0D1D5A00AA8E0F /* ImageUtility.h */,
-				8478F33D1A0D1D5A00AA8E0F /* ImageUtility.m */,
 				8478F33E1A0D1D5A00AA8E0F /* Picture.h */,
 				8478F33F1A0D1D5A00AA8E0F /* Picture.m */,
 				8478F32C1A0D16CF00AA8E0F /* Item.h */,
@@ -187,6 +193,7 @@
 		84B78AE819FEBE9700F35145 = {
 			isa = PBXGroup;
 			children = (
+				AA5805241A0DC35300D19702 /* Utility */,
 				8478F3491A0D1DA400AA8E0F /* ViewControllers */,
 				843121E91A0BBD1B004E1D4F /* Images */,
 				84A5CDE41A0A241600A11772 /* Models */,
@@ -243,6 +250,17 @@
 				84B78B0F19FEBE9900F35145 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AA5805241A0DC35300D19702 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				8478F33C1A0D1D5A00AA8E0F /* ImageUtility.h */,
+				8478F33D1A0D1D5A00AA8E0F /* ImageUtility.m */,
+				AA5805251A0DC39600D19702 /* AlertUtility.h */,
+				AA5805261A0DC39600D19702 /* AlertUtility.m */,
+			);
+			name = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,12 +366,14 @@
 				8478F32E1A0D16CF00AA8E0F /* Item.m in Sources */,
 				8478F3551A0D1DA400AA8E0F /* ItemTableViewCell.m in Sources */,
 				8478F3401A0D1D5A00AA8E0F /* CategoryGroup.m in Sources */,
+				AA1377711A0D98170070DC76 /* DetailsViewController.m in Sources */,
 				8478F3411A0D1D5A00AA8E0F /* ImageUtility.m in Sources */,
 				84B78AFA19FEBE9800F35145 /* AppDelegate.m in Sources */,
 				8478F3421A0D1D5A00AA8E0F /* Picture.m in Sources */,
 				8478F3541A0D1DA400AA8E0F /* CreateAdViewController.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,
 				8478F3581A0D1DA400AA8E0F /* ViewController.m in Sources */,
+				AA5805271A0DC39600D19702 /* AlertUtility.m in Sources */,
 				8478F3571A0D1DA400AA8E0F /* RegisterViewController.m in Sources */,
 				8478F3561A0D1DA400AA8E0F /* MainAdViewController.m in Sources */,
 			);
