@@ -9,7 +9,7 @@
 #import "RegisterViewController.h"
 #import "Parse/Parse.h"
 #import "AlertUtility.h"
-#import "ViewController.h"
+#import "MainScreenViewController.h"
 
 @interface RegisterViewController ()
 
@@ -43,7 +43,7 @@
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
             if (!error) {
                 NSLog(@"Registration success!");
-                ViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+                MainScreenViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
                 [self.navigationController pushViewController:loginVC animated:YES];
             }
             else {

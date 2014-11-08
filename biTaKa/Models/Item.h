@@ -14,7 +14,7 @@
 
 // for testing /musrt be a NSMutableArray
 @property (retain) Picture *pictureOne;
-@property (retain) Picture *pictureTwo;
+//@property (retain) Picture *pictureTwo;
 
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;

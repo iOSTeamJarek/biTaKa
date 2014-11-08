@@ -6,16 +6,16 @@
 //  Copyright (c) 2014 Admin. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "MainScreenViewController.h"
 #import "Parse/Parse.h"
 #import "MainAdViewController.h"
 #import "AlertUtility.h"
 
-@interface ViewController ()
+@interface MainScreenViewController ()
 
 @end
 
-@implementation ViewController
+@implementation MainScreenViewController
 
 - (IBAction)login:(id)sender {
     NSString *username = self.username.text;
@@ -25,7 +25,7 @@
         [AlertUtility alertWith:@"Invalid username" message:@"Username must be at least 3 characters" andButton:@"OK"];
     }
     else if(password == nil || password.length < 6){
-        [AlertUtility alertWith:@"Invalid password" message:@"Password must be at least 5 characters" andButton:@"OK"];
+        [AlertUtility alertWith:@"Invalid password" message:@"Password must be at least 6 characters" andButton:@"OK"];
     }
     else{
         [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser *user, NSError *error) {
@@ -39,6 +39,7 @@
             }
         }];
     }
+    
     [self.username resignFirstResponder];
 }
 

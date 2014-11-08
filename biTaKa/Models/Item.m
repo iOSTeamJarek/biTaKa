@@ -15,7 +15,7 @@
 static int Min_Lenght_Description = 10;
 
 @dynamic pictureOne;
-@dynamic pictureTwo;
+//@dynamic pictureTwo;
 
 @dynamic itemCategory;
 @dynamic itemDescription;

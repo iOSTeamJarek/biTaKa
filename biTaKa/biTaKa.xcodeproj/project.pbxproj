@@ -19,7 +19,7 @@
 		8478F3551A0D1DA400AA8E0F /* ItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478F34D1A0D1DA400AA8E0F /* ItemTableViewCell.m */; };
 		8478F3561A0D1DA400AA8E0F /* MainAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478F34F1A0D1DA400AA8E0F /* MainAdViewController.m */; };
 		8478F3571A0D1DA400AA8E0F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478F3511A0D1DA400AA8E0F /* RegisterViewController.m */; };
-		8478F3581A0D1DA400AA8E0F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478F3531A0D1DA400AA8E0F /* ViewController.m */; };
+		8478F3581A0D1DA400AA8E0F /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8478F3531A0D1DA400AA8E0F /* MainScreenViewController.m */; };
 		848B61261A0A82F900ED72BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848B61251A0A82F900ED72BD /* Main.storyboard */; };
 		84A5441F1A07CA02006CF824 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A5441E1A07CA02006CF824 /* AudioToolbox.framework */; };
 		84A544211A07CA0B006CF824 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A544201A07CA0B006CF824 /* CFNetwork.framework */; };
@@ -36,6 +36,7 @@
 		84B78B0219FEBE9800F35145 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84B78B0119FEBE9800F35145 /* Images.xcassets */; };
 		84B78B1119FEBE9900F35145 /* biTaKaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B78B1019FEBE9900F35145 /* biTaKaTests.m */; };
 		AA128E751A0E42B200BA2532 /* AlertUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AA128E741A0E42B200BA2532 /* AlertUtility.m */; };
+		AADB10AC1A0E4ACA0087F6FB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADB10AB1A0E4ACA0087F6FB /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +70,8 @@
 		8478F34F1A0D1DA400AA8E0F /* MainAdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainAdViewController.m; sourceTree = "<group>"; };
 		8478F3501A0D1DA400AA8E0F /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		8478F3511A0D1DA400AA8E0F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		8478F3521A0D1DA400AA8E0F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8478F3531A0D1DA400AA8E0F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		8478F3521A0D1DA400AA8E0F /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		8478F3531A0D1DA400AA8E0F /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
 		848B61251A0A82F900ED72BD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		84A5441E1A07CA02006CF824 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		84A544201A07CA0B006CF824 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,8 @@
 		84B78B1019FEBE9900F35145 /* biTaKaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = biTaKaTests.m; sourceTree = "<group>"; };
 		AA128E731A0E42B200BA2532 /* AlertUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtility.h; sourceTree = "<group>"; };
 		AA128E741A0E42B200BA2532 /* AlertUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtility.m; sourceTree = "<group>"; };
+		AADB10AA1A0E4ACA0087F6FB /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		AADB10AB1A0E4ACA0087F6FB /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,8 +149,10 @@
 				8478F34F1A0D1DA400AA8E0F /* MainAdViewController.m */,
 				8478F3501A0D1DA400AA8E0F /* RegisterViewController.h */,
 				8478F3511A0D1DA400AA8E0F /* RegisterViewController.m */,
-				8478F3521A0D1DA400AA8E0F /* ViewController.h */,
-				8478F3531A0D1DA400AA8E0F /* ViewController.m */,
+				8478F3521A0D1DA400AA8E0F /* MainScreenViewController.h */,
+				8478F3531A0D1DA400AA8E0F /* MainScreenViewController.m */,
+				AADB10AA1A0E4ACA0087F6FB /* DetailViewController.h */,
+				AADB10AB1A0E4ACA0087F6FB /* DetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -367,7 +372,8 @@
 				8478F3421A0D1D5A00AA8E0F /* Picture.m in Sources */,
 				8478F3541A0D1DA400AA8E0F /* CreateAdViewController.m in Sources */,
 				84B78AF719FEBE9700F35145 /* main.m in Sources */,
-				8478F3581A0D1DA400AA8E0F /* ViewController.m in Sources */,
+				AADB10AC1A0E4ACA0087F6FB /* DetailViewController.m in Sources */,
+				8478F3581A0D1DA400AA8E0F /* MainScreenViewController.m in Sources */,
 				8478F3571A0D1DA400AA8E0F /* RegisterViewController.m in Sources */,
 				8478F3561A0D1DA400AA8E0F /* MainAdViewController.m in Sources */,
 			);
