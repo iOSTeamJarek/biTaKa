@@ -7,12 +7,27 @@
 //
 
 #import "CreateAdViewController.h"
+#import "CategoryGroup.h"
 
 @interface CreateAdViewController ()
+
+    @property NSMutableArray *categoryData;
 
 @end
 
 @implementation CreateAdViewController
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+    return self.categoryData.count;
+}
+
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.categoryData[row] objectForKey:@"categoryName"];
+}
 
 //- (IBAction)addPicture:(id)sender {
 //        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -36,14 +51,34 @@
     item.itemDescription = self.addDescription.text;
     NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
     [f setNumberStyle:NSNumberFormatterDecimalStyle];
-    item.price = [f numberFromString: self.price.text];
+   //item.price = [f numberFromString: self.price.text];
     
     [self.delegate addItem:item];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    //self.categoryData = [NSMutableArray arrayWithObjects:@"Hi", @"Bye", nil];
+    
+    __weak id weakSelf = self;
+
+    
+    PFQuery *query = [PFQuery queryWithClassName: [CategoryGroup parseClassName]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %ld scores.", objects.count);
+            // Do something with the found objects
+            [weakSelf setCategoryData:[NSMutableArray arrayWithArray:objects]];
+            NSLog(@"%@", [weakSelf categoryData]);
+            [[weakSelf picker] reloadAllComponents];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
