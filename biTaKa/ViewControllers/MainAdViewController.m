@@ -12,8 +12,12 @@
 #import "ItemTableViewCell.h"
 #import "DetailViewController.h"
 #import "MainScreenViewController.h"
+#import "CoreDataManager.h"
+#import "CoreDataItem.h"
 
 @interface MainAdViewController ()
+
+@property(nonatomic, strong) CoreDataManager* coreManager;
 
 @end
 
@@ -68,7 +72,6 @@ static NSString* cellIdentifier = @"itemCell";
         [cell.cellItemImage.layer addAnimation:[self getImageTransition] forKey:nil];
         cellImageView.image = image;
     }];
-
     
     return cell;
 }
@@ -86,7 +89,7 @@ static NSString* cellIdentifier = @"itemCell";
     }
     
     __weak id weakSelf = self;
-    
+    // parse query
     PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -95,7 +98,9 @@ static NSString* cellIdentifier = @"itemCell";
             // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
             [[weakSelf itemTableView] reloadData];
-            
+            [self initializeCoreData];
+            // [self addDataToCoreData];
+            [self fetchRequest];
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -103,11 +108,49 @@ static NSString* cellIdentifier = @"itemCell";
     }];
 }
 
+// CORE DATA
+-(void) initializeCoreData {
+    self.coreManager = [[CoreDataManager alloc] init];
+    [self.coreManager setupCoreData];
+}
+
+-(void) addDataToCoreData {
+    CoreDataItem *item1 = [NSEntityDescription insertNewObjectForEntityForName:@"CoreDataItem" inManagedObjectContext:self.coreManager.context];
+    item1.itemCategory = [self.items[0] objectForKey:@"itemCategory"];
+    item1.itemName = [self.items[0] objectForKey:@"itemName"];
+    item1.itemDescription = [self.items[0] objectForKey:@"itemDescription"];
+    item1.itemPrice = [self.items[0] objectForKey:@"itemPrice"];
+    
+    CoreDataItem *item2 = [NSEntityDescription insertNewObjectForEntityForName:@"CoreDataItem" inManagedObjectContext:self.coreManager.context];
+    item2.itemCategory = [self.items[1] objectForKey:@"itemCategory"];
+    item2.itemName = [self.items[1] objectForKey:@"itemName"];
+    item2.itemDescription = [self.items[1] objectForKey:@"itemDescription"];
+    item2.itemPrice = [self.items[1] objectForKey:@"itemPrice"];
+    
+    [self.coreManager.context insertObject:item1];
+    [self.coreManager.context insertObject:item1];
+    
+    [self.coreManager saveContext];
+}
+
+-(void) fetchRequest {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"CoreDataItem"];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"itemPrice" ascending:YES];
+    [request setSortDescriptors:[NSArray arrayWithObject:sort]];
+    NSArray *fetchedObjects = [self.coreManager.context executeFetchRequest:request error:nil];
+    
+    for (CoreDataItem *item in fetchedObjects) {
+        NSLog(@"Item price = %@", item.itemPrice);
+        NSLog(@"Item category is %@", item.itemCategory);
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+// segue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"toCreateItem"]) {
         if ([segue.destinationViewController isKindOfClass:[CreateAdViewController class]]) {
@@ -135,7 +178,6 @@ static NSString* cellIdentifier = @"itemCell";
 #pragma mark - CreateAddViewControllerDelegate
 
 -(void)addItem:(Item *)item {
-    // update table
     // persist data in Parse
     PFObject *parseObject = [PFObject objectWithClassName:@"Item"];
     //parseObject[@"itemPicture"] = @"";
@@ -176,9 +218,9 @@ static NSString* cellIdentifier = @"itemCell";
 
 - (void) setLoginButton {
     UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login"
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(loginEvent:)];
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(loginEvent:)];
     
     self.navigationItem.leftBarButtonItem = loginButton;
 }
@@ -190,4 +232,5 @@ static NSString* cellIdentifier = @"itemCell";
     trans.type = kCATransitionFade;
     return trans;
 }
+
 @end

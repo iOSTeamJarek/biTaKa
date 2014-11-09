@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
 #import "Picture.h"
+#import "CoreData/CoreData.h"
 
 @interface Item : PFObject<PFSubclassing>
 

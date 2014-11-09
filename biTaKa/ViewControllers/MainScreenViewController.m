@@ -6,17 +6,18 @@
 //  Copyright (c) 2014 Admin. All rights reserved.
 //
 
-#import "MainScreenViewController.h"
 #import "Parse/Parse.h"
+#import "MainScreenViewController.h"
 #import "MainAdViewController.h"
 #import "AlertUtility.h"
+#import "CoreDataManager.h"
 
 @interface MainScreenViewController ()
 
 @end
 
 @implementation MainScreenViewController
-
+// login
 - (IBAction)login:(id)sender {
     NSString *username = self.username.text;
     NSString *password = self.password.text;
@@ -50,7 +51,7 @@
 - (IBAction)guestBtn:(id)sender {
     
 }
-
+// hide keyboard
 -(void)touchesBegan:(NSSet *)touches
           withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -68,22 +69,12 @@
     self.regBtn.layer.cornerRadius = 15;
     self.guestBtn.layer.borderWidth = 2;
     self.guestBtn.layer.cornerRadius = 15;
-    
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(void)alertMessage:(NSString*)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: message
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
-    [alert show];
 }
 
 @end
