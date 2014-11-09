@@ -13,7 +13,9 @@
 @interface Item : PFObject<PFSubclassing>
 
 // for testing /musrt be a NSMutableArray
-@property (retain) PFFile *itemPicture;
+@property (nonatomic) NSDate *createdAt;
+@property (nonatomic) NSString *objectId;
+@property (nonatomic) PFFile *itemPicture;
 @property (nonatomic) NSString *itemName;
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;

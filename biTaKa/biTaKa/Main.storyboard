@@ -147,38 +147,38 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Hu-a2-oAX">
-                                                    <rect key="frame" x="0.0" y="8" width="136" height="128"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cz-Lf-P9g">
-                                                    <rect key="frame" x="157" y="8" width="111" height="126"/>
+                                                    <rect key="frame" x="8" y="9" width="136" height="128"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="111" id="zNa-xd-LHg"/>
+                                                        <constraint firstAttribute="width" constant="136" id="Ey6-1Y-aaV"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0e-L9-pmF">
-                                                    <rect key="frame" x="281" y="65" width="62" height="71"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Price: $123.88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0e-L9-pmF">
+                                                    <rect key="frame" x="152" y="12" width="194" height="20"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="62" id="MTv-0e-lb5"/>
+                                                        <constraint firstAttribute="height" constant="20" id="pHc-i4-1LR"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Cz-Lf-P9g">
+                                                    <rect key="frame" x="152" y="40" width="201" height="95"/>
+                                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="6Cz-Lf-P9g" secondAttribute="bottom" constant="-2" id="7rw-sz-Q30"/>
-                                                <constraint firstItem="M0e-L9-pmF" firstAttribute="leading" secondItem="6Cz-Lf-P9g" secondAttribute="trailing" constant="13" id="bVv-Kv-RSu"/>
-                                                <constraint firstItem="6Cz-Lf-P9g" firstAttribute="leading" secondItem="0Hu-a2-oAX" secondAttribute="trailing" constant="21" id="eGV-lQ-eGm"/>
-                                                <constraint firstItem="M0e-L9-pmF" firstAttribute="top" secondItem="dDZ-rS-o08" secondAttribute="topMargin" constant="59" id="p70-fy-QLS"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="M0e-L9-pmF" secondAttribute="trailing" constant="10" id="ryJ-Cd-4r3"/>
-                                                <constraint firstItem="0Hu-a2-oAX" firstAttribute="leading" secondItem="dDZ-rS-o08" secondAttribute="leading" id="tlQ-tU-zpM"/>
-                                                <constraint firstItem="0Hu-a2-oAX" firstAttribute="top" secondItem="dDZ-rS-o08" secondAttribute="topMargin" constant="2" id="uwy-Ap-PVl"/>
-                                                <constraint firstItem="M0e-L9-pmF" firstAttribute="bottom" secondItem="0Hu-a2-oAX" secondAttribute="bottom" id="wbt-K7-8u8"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0Hu-a2-oAX" secondAttribute="bottom" constant="-4" id="yV2-Pa-nhK"/>
-                                                <constraint firstItem="6Cz-Lf-P9g" firstAttribute="top" secondItem="0Hu-a2-oAX" secondAttribute="top" id="yoT-S5-BNh"/>
+                                                <constraint firstItem="6Cz-Lf-P9g" firstAttribute="top" secondItem="M0e-L9-pmF" secondAttribute="bottom" constant="6" id="1ZL-6c-jFI"/>
+                                                <constraint firstItem="M0e-L9-pmF" firstAttribute="top" secondItem="dDZ-rS-o08" secondAttribute="topMargin" constant="4" id="3a1-Vm-qH3"/>
+                                                <constraint firstItem="6Cz-Lf-P9g" firstAttribute="bottom" secondItem="0Hu-a2-oAX" secondAttribute="bottom" constant="-29" id="3tT-Zg-SDL"/>
+                                                <constraint firstItem="M0e-L9-pmF" firstAttribute="leading" secondItem="6Cz-Lf-P9g" secondAttribute="leading" id="PcJ-6K-YfG"/>
+                                                <constraint firstItem="0Hu-a2-oAX" firstAttribute="top" secondItem="dDZ-rS-o08" secondAttribute="topMargin" id="QXO-Qj-r7C"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="M0e-L9-pmF" secondAttribute="trailing" constant="7" id="hDF-lr-xfO"/>
+                                                <constraint firstItem="0Hu-a2-oAX" firstAttribute="leading" secondItem="dDZ-rS-o08" secondAttribute="leading" id="pzz-44-Rep"/>
+                                                <constraint firstItem="6Cz-Lf-P9g" firstAttribute="leading" secondItem="0Hu-a2-oAX" secondAttribute="trailing" constant="8" symbolic="YES" id="xV5-Ub-kzb"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0Hu-a2-oAX" secondAttribute="bottom" constant="-2" id="xfA-De-kEF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -229,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Gy-V1-sdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-151.5" y="490.5"/>
+            <point key="canvasLocation" x="-151.5" y="476.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="4Gp-hH-0IN">

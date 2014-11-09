@@ -59,8 +59,8 @@ static NSString* cellIdentifier = @"itemCell";
     cell.cellItemDescription.text = it.itemDescription;
     NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     [fmt setPositiveFormat:@"0.##"];
-    cell.cellItemPrice.text = [fmt stringFromNumber:[NSNumber numberWithFloat:[it.itemPrice floatValue]]];
-    
+    cell.cellItemPrice.text = [NSString stringWithFormat:@"Price: $%@",
+                               [fmt stringFromNumber:[NSNumber numberWithFloat:[it.itemPrice floatValue]]]];
     PFFile *thumbnail = it.itemPicture;
     __weak UIImageView *cellImageView = cell.cellItemImage;
     [thumbnail getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
@@ -132,16 +132,6 @@ static NSString* cellIdentifier = @"itemCell";
         NSIndexPath *path = [self.itemTableView indexPathForSelectedRow];
         Item *c = self.items[path.row];
         [next setItemData: c];
-
-        
-//        
-//        DetailViewController *detailsVC = segue.destinationViewController;
-//        detailsVC.itemData = self.items[self.itemTableView.indexPathForSelectedRow.row];
-        
-        //        ItemTableViewCell *cell = (ItemTableViewCell *) sender;
-        //
-        //        NSString *test = cell.cellItemDescription.text;
-        //        detailsVC.lbItemPrice.text = test;
     }
     
 }

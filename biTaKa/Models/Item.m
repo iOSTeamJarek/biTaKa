@@ -14,6 +14,8 @@
 
 static int Min_Lenght_Description = 10;
 
+@dynamic createdAt;
+@dynamic objectId;
 @dynamic itemPicture;
 @dynamic itemName;
 @dynamic itemCategory;
