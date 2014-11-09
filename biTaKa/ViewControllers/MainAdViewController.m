@@ -91,7 +91,7 @@ static NSString* cellIdentifier = @"itemCell";
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %ld scores.", objects.count);
+            NSLog(@"Successfully retrieved %ld items.", objects.count);
             // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
             [[weakSelf itemTableView] reloadData];
@@ -101,19 +101,6 @@ static NSString* cellIdentifier = @"itemCell";
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
-    
-    //[query orderByAscending:@"name"];
-    //    query.skip = 2;
-    //    query.limit = 3;
-    //    [query whereKey:@"name" containedIn:@[@"Doncho", @"NEW NAME", @"Gosho"]];
-    
-    //    __weak id weakSelf = self;
-    //    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-    //        if(!error){
-    //            [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
-    //            [[weakSelf itemTableView] reloadData];
-    //        }
-    //    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -151,10 +138,10 @@ static NSString* cellIdentifier = @"itemCell";
     // update table
     // persist data in Parse
     PFObject *parseObject = [PFObject objectWithClassName:@"Item"];
-    parseObject[@"Picture"] = @"";
-    parseObject[@"Category"] = item.itemCategory;
-    parseObject[@"Description"] = item.itemDescription;
-    //parseObject[@"Price"] = item.price;
+    //parseObject[@"itemPicture"] = @"";
+    parseObject[@"itemCategory"] = item.itemCategory;
+    parseObject[@"itemDescription"] = item.itemDescription;
+    parseObject[@"itemPrice"] = item.itemPrice;
     
     [parseObject saveInBackground];
     

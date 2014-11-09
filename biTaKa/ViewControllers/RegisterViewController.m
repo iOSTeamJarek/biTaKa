@@ -59,8 +59,16 @@
     }
 }
 
+-(void)touchesBegan:(NSSet *)touches
+          withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // set button
+    self.registerBtn.layer.borderWidth = 2;
+    self.registerBtn.layer.cornerRadius = 15;
     // Do any additional setup after loading the view, typically from a nib.
 }
 

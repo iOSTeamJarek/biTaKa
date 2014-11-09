@@ -18,7 +18,7 @@
   
     self.cellItemPrice.layer.borderWidth = 1;
     self.cellItemPrice.layer.cornerRadius = 5;
-    self.cellItemPrice.layer.borderColor = [[UIColor blueColor]CGColor];
+    self.cellItemPrice.layer.borderColor = [[UIColor grayColor]CGColor];
 }
 
 @end

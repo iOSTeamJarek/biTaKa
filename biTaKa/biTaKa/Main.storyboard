@@ -33,16 +33,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7A-iN-EAU">
-                                <rect key="frame" x="102" y="406" width="172" height="36"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <action selector="registerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O45-KB-Wh0"/>
-                                    <segue destination="HHR-Tz-cYh" kind="show" id="DgY-Um-IRJ"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wm8-se-M3s">
                                 <rect key="frame" x="101" y="470" width="172" height="36"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,6 +67,16 @@
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dHb-i7-WbT"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7A-iN-EAU">
+                                <rect key="frame" x="102" y="406" width="172" height="36"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <action selector="registerBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O45-KB-Wh0"/>
+                                    <segue destination="HHR-Tz-cYh" kind="show" id="DgY-Um-IRJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -106,7 +106,10 @@
                     <navigationItem key="navigationItem" id="c8T-hM-cgh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="guestBtn" destination="Wm8-se-M3s" id="rwX-Wi-aXN"/>
+                        <outlet property="loginBtn" destination="4h2-3H-yzz" id="cZK-OU-Fvp"/>
                         <outlet property="password" destination="qk4-CF-DYd" id="Pnc-F2-9hH"/>
+                        <outlet property="regBtn" destination="E7A-iN-EAU" id="CSM-II-Dy1"/>
                         <outlet property="username" destination="7Wp-eG-Q5X" id="7n0-h2-CSF"/>
                     </connections>
                 </viewController>
@@ -271,17 +274,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-uU-kEq">
-                                <rect key="frame" x="68" y="452" width="238" height="39"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="registerBtn:" destination="HHR-Tz-cYh" eventType="touchUpInside" id="0iA-FM-bsk"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htB-nN-Ofq">
                                 <rect key="frame" x="24" y="309" width="272" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -293,6 +285,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wGF-uU-kEq">
+                                <rect key="frame" x="68" y="452" width="238" height="39"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerBtn:" destination="HHR-Tz-cYh" eventType="touchUpInside" id="0iA-FM-bsk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -324,6 +327,7 @@
                     <connections>
                         <outlet property="confirmPassword" destination="frV-ys-s5F" id="KrT-1F-BBp"/>
                         <outlet property="password" destination="X6C-fY-SNb" id="UVv-Ul-7e9"/>
+                        <outlet property="registerBtn" destination="wGF-uU-kEq" id="Hel-8k-WZX"/>
                         <outlet property="username" destination="j83-Ks-S2O" id="LCO-YZ-Kux"/>
                     </connections>
                 </viewController>

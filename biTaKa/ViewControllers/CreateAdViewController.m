@@ -67,7 +67,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %ld scores.", objects.count);
+            NSLog(@"Successfully retrieved %ld categories.", objects.count);
             // Do something with the found objects
             [weakSelf setCategoryData:[NSMutableArray arrayWithArray:objects]];
             NSLog(@"%@", [weakSelf categoryData]);

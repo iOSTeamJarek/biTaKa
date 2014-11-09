@@ -51,8 +51,6 @@
     
 }
 
-
-
 -(void)touchesBegan:(NSSet *)touches
           withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
@@ -63,6 +61,13 @@
     
     self.title = @"biTaKa";
     self.navigationItem.hidesBackButton = YES;
+    // set buttons
+    self.loginBtn.layer.borderWidth = 2;
+    self.loginBtn.layer.cornerRadius = 15;
+    self.regBtn.layer.borderWidth = 2;
+    self.regBtn.layer.cornerRadius = 15;
+    self.guestBtn.layer.borderWidth = 2;
+    self.guestBtn.layer.cornerRadius = 15;
     
     // Do any additional setup after loading the view, typically from a nib.
 }
