@@ -13,13 +13,11 @@
 @interface Item : PFObject<PFSubclassing>
 
 // for testing /musrt be a NSMutableArray
-@property (retain) Picture *pictureOne;
-//@property (retain) Picture *pictureTwo;
-
+@property (retain) PFFile *itemPicture;
+@property (nonatomic) NSString *itemName;
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;
-@property (nonatomic) NSNumber *price;
-@property (retain) PFUser *owner;
+@property (nonatomic) NSNumber *itemPrice;
 
 +(NSString *)parseClassName;
 +(void)load;

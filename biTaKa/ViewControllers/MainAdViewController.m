@@ -54,9 +54,21 @@ static NSString* cellIdentifier = @"itemCell";
         cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    cell.cellItemImage.image = [UIImage imageNamed:@"interior.jpeg"];
-    cell.cellItemDescription.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Description"];
-    cell.cellItemPrice.text = [[self.items objectAtIndex:indexPath.row] objectForKey:@"Price"];
+    Item *it = [self.items objectAtIndex:indexPath.row];
+    
+    cell.cellItemDescription.text = it.itemDescription;
+    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+    [fmt setPositiveFormat:@"0.##"];
+    cell.cellItemPrice.text = [fmt stringFromNumber:[NSNumber numberWithFloat:[it.itemPrice floatValue]]];
+    
+    PFFile *thumbnail = it.itemPicture;
+    __weak UIImageView *cellImageView = cell.cellItemImage;
+    [thumbnail getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        [cell.cellItemImage.layer addAnimation:[self getImageTransition] forKey:nil];
+        cellImageView.image = image;
+    }];
+
     
     return cell;
 }
@@ -116,8 +128,15 @@ static NSString* cellIdentifier = @"itemCell";
             destVC.delegate = self;
         }
     }else if ([segue.identifier isEqualToString:@"toDetailView"]){
-        DetailViewController *detailsVC = segue.destinationViewController;
-        detailsVC.itemData = self.items[self.itemTableView.indexPathForSelectedRow.row];
+        DetailViewController *next = [segue destinationViewController];
+        NSIndexPath *path = [self.itemTableView indexPathForSelectedRow];
+        Item *c = self.items[path.row];
+        [next setItemData: c];
+
+        
+//        
+//        DetailViewController *detailsVC = segue.destinationViewController;
+//        detailsVC.itemData = self.items[self.itemTableView.indexPathForSelectedRow.row];
         
         //        ItemTableViewCell *cell = (ItemTableViewCell *) sender;
         //
@@ -145,7 +164,7 @@ static NSString* cellIdentifier = @"itemCell";
     parseObject[@"Picture"] = @"";
     parseObject[@"Category"] = item.itemCategory;
     parseObject[@"Description"] = item.itemDescription;
-    parseObject[@"Price"] = item.price;
+    //parseObject[@"Price"] = item.price;
     
     [parseObject saveInBackground];
     
@@ -187,5 +206,11 @@ static NSString* cellIdentifier = @"itemCell";
     self.navigationItem.leftBarButtonItem = loginButton;
 }
 
-
+-(CATransition*)getImageTransition{
+    CATransition *trans = [CATransition animation];
+    trans.duration = 1.5f;
+    trans.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    trans.type = kCATransitionFade;
+    return trans;
+}
 @end

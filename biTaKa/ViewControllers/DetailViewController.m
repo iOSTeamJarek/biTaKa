@@ -15,9 +15,11 @@
 @implementation DetailViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
-    NSString *text =[NSString stringWithFormat:@"%d", [self.itemData.price intValue]];
-    self.lbItemPrice.text = [NSString stringWithFormat:@"%d", [self.itemData.price intValue]];
+    [super viewDidLoad];
+    NSLog(@"%@", self.itemData);
+    
+    NSString *text =self.itemData.itemCategory;
+    self.lbItemPrice.text = text;
 }
 
 - (void)didReceiveMemoryWarning {

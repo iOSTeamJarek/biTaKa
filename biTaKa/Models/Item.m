@@ -14,13 +14,11 @@
 
 static int Min_Lenght_Description = 10;
 
-@dynamic pictureOne;
-//@dynamic pictureTwo;
-
+@dynamic itemPicture;
+@dynamic itemName;
 @dynamic itemCategory;
 @dynamic itemDescription;
-@dynamic price;
-@dynamic owner;
+@dynamic itemPrice;
 
 +(NSString *)parseClassName{
     return @"Item";
