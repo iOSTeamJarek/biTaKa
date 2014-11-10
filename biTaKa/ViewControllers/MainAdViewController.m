@@ -25,6 +25,7 @@
 
 @implementation MainAdViewController{
     UIRefreshControl *refreshControl;
+    Item *deletableItem;
 }
 
 -(instancetype)init{
@@ -114,6 +115,9 @@ static NSString* cellIdentifier = @"itemCell";
     
     if (user) {
         [self setLogoutButton];
+        if ([user.username isEqualToString:@"admin"]) {
+            [self addLongPressRecognizer];
+        }
     }else{
         [self setLoginButton];
     }
@@ -289,6 +293,54 @@ static NSString* cellIdentifier = @"itemCell";
         [self.navigationController pushViewController:mainLoggedVC animated:YES];
     }
 }
+
+-(void)addLongPressRecognizer{
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 0.7;
+    lpgr.delegate = self;
+    [self.itemTableView addGestureRecognizer:lpgr];
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.itemTableView];
+    
+    NSIndexPath *indexPath = [self.itemTableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        deletableItem = [self.items objectAtIndex:indexPath.row];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Admin"
+                                                        message:@"Are you sure you want to delete it?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"Ok", nil];
+        [alert show];
+    }
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
+        [query whereKey:@"objectId" equalTo: deletableItem.objectId];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject * userStats, NSError *error) {
+            if (!error) {
+                // Found UserStats
+                [userStats setObject:[NSNumber numberWithBool:NO] forKey:@"state"];
+                
+                // Save
+                [userStats saveInBackground];
+            } else {
+                // Did not find any UserStats for the current user
+                NSLog(@"Error: %@", error);
+            }
+        }];
+    }
+    
+}
+
 
 -(CATransition*)getImageTransition{
     CATransition *trans = [CATransition animation];

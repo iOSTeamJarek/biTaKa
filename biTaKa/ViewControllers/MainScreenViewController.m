@@ -60,7 +60,6 @@
     
     PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
     [query orderByDescending:@"createdAt"];
-    //[query whereKey:@"user" equalTo:[PFUser currentUser].username];
     [query whereKey:@"state" equalTo:[NSNumber numberWithBool:YES]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {

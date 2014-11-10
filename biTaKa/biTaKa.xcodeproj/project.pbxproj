@@ -43,6 +43,7 @@
 		AAA98DCE1A103E4600D54F5A /* CoreDataItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AAA98DC91A103E4600D54F5A /* CoreDataItem.xcdatamodeld */; };
 		AAA98DCF1A103E4600D54F5A /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAA98DCC1A103E4600D54F5A /* CoreDataManager.m */; };
 		AAD49C161A1097CB004BA945 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD49C151A1097CB004BA945 /* ProfileViewController.m */; };
+		AAD49C191A10A45B004BA945 /* customTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD49C181A10A45B004BA945 /* customTableViewCell.m */; };
 		AADB10AC1A0E4ACA0087F6FB /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AADB10AB1A0E4ACA0087F6FB /* DetailViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,8 @@
 		AAA98DCC1A103E4600D54F5A /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		AAD49C141A1097CB004BA945 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		AAD49C151A1097CB004BA945 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		AAD49C171A10A45B004BA945 /* customTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customTableViewCell.h; sourceTree = "<group>"; };
+		AAD49C181A10A45B004BA945 /* customTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customTableViewCell.m; sourceTree = "<group>"; };
 		AADB10AA1A0E4ACA0087F6FB /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		AADB10AB1A0E4ACA0087F6FB /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +180,8 @@
 				AAA54D371A100CF70097B96D /* AddPictureViewController.m */,
 				AAD49C141A1097CB004BA945 /* ProfileViewController.h */,
 				AAD49C151A1097CB004BA945 /* ProfileViewController.m */,
+				AAD49C171A10A45B004BA945 /* customTableViewCell.h */,
+				AAD49C181A10A45B004BA945 /* customTableViewCell.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				AAA98DCE1A103E4600D54F5A /* CoreDataItem.xcdatamodeld in Sources */,
 				AAA98DCF1A103E4600D54F5A /* CoreDataManager.m in Sources */,
 				AAA98DCD1A103E4600D54F5A /* CoreDataItem.m in Sources */,
+				AAD49C191A10A45B004BA945 /* customTableViewCell.m in Sources */,
 				8478F3581A0D1DA400AA8E0F /* MainScreenViewController.m in Sources */,
 				8478F3571A0D1DA400AA8E0F /* RegisterViewController.m in Sources */,
 				8478F3561A0D1DA400AA8E0F /* MainAdViewController.m in Sources */,
