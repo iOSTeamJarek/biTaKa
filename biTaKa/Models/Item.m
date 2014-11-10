@@ -12,8 +12,6 @@
     
 }
 
-static int Min_Lenght_Description = 10;
-
 @dynamic createdAt;
 @dynamic objectId;
 @dynamic itemPicture;
@@ -21,6 +19,7 @@ static int Min_Lenght_Description = 10;
 @dynamic itemCategory;
 @dynamic itemDescription;
 @dynamic itemPrice;
+@dynamic user;
 
 +(NSString *)parseClassName{
     return @"Item";
@@ -30,38 +29,23 @@ static int Min_Lenght_Description = 10;
     [self registerSubclass];
 }
 
-// TODO: Refactor code with constants
-// Tip: Handling Alert box in UI with raisin ERROR in setters
-
--(void)setItemCategory:(NSString *)itemCategory{
-    
-    // TODO: handle alert box
-    if ([itemCategory isEqual:nil]) {
-        NSLog(@"No category Selected");
+-(instancetype)initWIthName:(NSString*)name
+                      image:(UIImage*)image
+                   category:(NSString*)category
+                description:(NSString*)description
+                      price:(NSNumber*)price
+                       user:(NSString*)user{
+    if (self = [super init]) {
+        self.itemName = name;
+        NSString *imageName = [NSString stringWithFormat:@"%@.png", name];
+        self.itemPicture = [PFFile fileWithName:imageName data:UIImagePNGRepresentation(image)];
+        self.itemCategory = category;
+        self.itemDescription = description;
+        self.itemPrice = price;
+        self.user = user;
+        
     }
     
-    self.itemCategory = itemCategory;
+    return  self;
 }
-
--(void) setItemDescription:(NSString *)itemDescription{
-    if ([itemDescription length] <= Min_Lenght_Description) {
-        // Raise error
-    }
-    
-    self.itemDescription = itemDescription;
-}
-
--(void) setPrice:(NSNumber *)price{
-    if (price < 0) {
-        //Raise no negative error
-    }
-    
-    self.price = price;
-}
-
-// Here we check in the view for currentUser so no need to check if it exists
--(void) setOwner:(PFUser *)owner{
-    self.owner = owner;
-}
-
 @end

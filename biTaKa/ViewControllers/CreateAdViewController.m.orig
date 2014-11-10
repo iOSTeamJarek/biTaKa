@@ -18,11 +18,12 @@
 @end
 
 @implementation CreateAdViewController{
+<<<<<<< HEAD
     CLLocationManager *locationManager;
-}
-@implementation CreateAdViewController{
+=======
     UIBarButtonItem *createButton;
     NSMutableString *categoryName;
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
@@ -37,22 +38,48 @@
     return [self.categoryData[row] objectForKey:@"categoryName"];
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
-    categoryName = [self.categoryData[row] objectForKey:@"categoryName"];
+<<<<<<< HEAD
+- (IBAction)addPicture:(id)sender {
+    //        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    //        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //        picker.delegate = self;
+    //        [self presentModalViewController:picker animated:YES];
+    //}
+    
+    //- (void)imagePickerController:(UIImagePickerController *)picker
+    //            didFinishPickingImage:(UIImage *)image
+    //                      editingInfo:(NSDictionary *)editingInfo
+    //{
+    //    imageView.image = image;
+    //    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
+    
+    // alert coordinates
+    [locationManager startUpdatingLocation];
 }
 
 -(void)touchesBegan:(NSSet *)touches
           withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+=======
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    categoryName = [self.categoryData[row] objectForKey:@"categoryName"];
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
 }
 
 - (IBAction)postButton:(id)sender {
     Item *item = [Item new];
     //item.filename = ...
+<<<<<<< HEAD
+    item.itemCategory = self.addCategory.text;
+    item.itemDescription = self.addDescription.text;
+    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+=======
 //    item.itemCategory = self.addCategory.text;
 //    item.itemDescription = self.addDescription.text;
 //    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
 //    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
     //item.price = [f numberFromString: self.price.text];
     
     [self.delegate addItem:item];
@@ -67,7 +94,10 @@
     //self.categoryData = [NSMutableArray arrayWithObjects:@"Hi", @"Bye", nil];
     
     __weak id weakSelf = self;
+<<<<<<< HEAD
     
+=======
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
     
     PFQuery *query = [PFQuery queryWithClassName: [CategoryGroup parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -76,8 +106,13 @@
             NSLog(@"Successfully retrieved %ld scores.", objects.count);
             // Do something with the found objects
             [weakSelf setCategoryData:[NSMutableArray arrayWithArray:objects]];
+<<<<<<< HEAD
+            //NSLog(@"%@", [weakSelf categoryData]);
+            [[weakSelf picker] reloadAllComponents];
+=======
             //NSLog(@"%@", [weakSelf itemCategory]);
             [[weakSelf categoryPickData] reloadAllComponents];
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
             
         } else {
             // Log details of the failure
@@ -85,6 +120,8 @@
         }
     }];
     
+<<<<<<< HEAD
+=======
     self.navigationController.title = @"Add new customer";
     createButton = [[UIBarButtonItem alloc] initWithTitle:@"Create"
                                                     style:UIBarButtonItemStylePlain
@@ -120,6 +157,7 @@
 //            [self.navigationController popViewControllerAnimated:YES];
 //        }];
 //    }
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
 }
 
 - (void)didReceiveMemoryWarning {

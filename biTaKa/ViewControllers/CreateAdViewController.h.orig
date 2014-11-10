@@ -16,8 +16,12 @@
 
 @end
 
+<<<<<<< HEAD
 @interface CreateAdViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
+=======
+@interface CreateAdViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+>>>>>>> 0cb055e15423ec3fc05d1fd85fa107d9a462bc73
 
 @property (weak, nonatomic) IBOutlet UIPickerView *categoryPickData;
 @property (weak, nonatomic) IBOutlet UITextField *itemPrice;
