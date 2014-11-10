@@ -17,11 +17,14 @@
 @end
 
 @interface CreateAdViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
-@property (weak, nonatomic) IBOutlet UITextField *addCategory;
-@property (weak, nonatomic) IBOutlet UITextView *addDescription;
-@property (weak, nonatomic) IBOutlet UITextField *price;
+@property (weak, nonatomic) IBOutlet UIPickerView *categoryPickData;
+@property (weak, nonatomic) IBOutlet UITextField *itemPrice;
+@property (weak, nonatomic) IBOutlet UITextView *itemDescription;
+@property (weak, nonatomic) IBOutlet UIImageView *itemImage;
+@property (weak, nonatomic) IBOutlet UITextField *itemName;
+@property (strong, nonatomic)UIImage* image;
+
 
 @property (weak, nonatomic) id<CreateAdViewControllerDelegate> delegate;
 

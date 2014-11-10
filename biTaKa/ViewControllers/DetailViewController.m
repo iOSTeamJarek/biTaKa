@@ -39,7 +39,7 @@
     [formatter setDateFormat:@"dd/MM/yyyy"];
     NSString *dateAdded = [NSString stringWithFormat:@"Date Added: %@", [formatter stringFromDate:self.itemData.createdAt]];
     NSString *contact = [NSString stringWithFormat:@"Contact: 0895/112 113"];
-    NSString *seller = [NSString stringWithFormat:@"Seller: NONE"];
+    NSString *seller = [NSString stringWithFormat:@"Seller: %@", self.itemData.user];
     
     self.lbItemPrice.text = price;
     self.lbItemDescription.text = description;

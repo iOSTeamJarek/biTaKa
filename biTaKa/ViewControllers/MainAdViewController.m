@@ -12,6 +12,7 @@
 #import "ItemTableViewCell.h"
 #import "DetailViewController.h"
 #import "MainScreenViewController.h"
+#import "AlertUtility.h"
 #import "CoreDataManager.h"
 #import "CoreDataItem.h"
 
@@ -223,6 +224,16 @@ static NSString* cellIdentifier = @"itemCell";
                                                                    action:@selector(loginEvent:)];
     
     self.navigationItem.leftBarButtonItem = loginButton;
+}
+
+- (IBAction)btnNewAd:(id)sender {
+    PFUser *user = [PFUser currentUser];
+    if (!user) {
+        [AlertUtility alertWith:@"Sorry :(" message:@"You must be logged to continue!" andButton:@"Got it!"];
+    }else{
+        CreateAdViewController *mainLoggedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"createView"];
+        [self.navigationController pushViewController:mainLoggedVC animated:YES];
+    }
 }
 
 -(CATransition*)getImageTransition{

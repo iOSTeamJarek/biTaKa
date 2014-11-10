@@ -9,11 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Parse/Parse.h"
 #import "Picture.h"
-#import "CoreData/CoreData.h"
 
 @interface Item : PFObject<PFSubclassing>
 
-// for testing /musrt be a NSMutableArray
+-(instancetype)initWIthName:(NSString*)name
+                      image:(UIImage*)image
+                    category:(NSString*)category
+                   description:(NSString*)description
+                       price:(NSNumber*)price
+                       user:(NSString*)user;
+
 @property (nonatomic) NSDate *createdAt;
 @property (nonatomic) NSString *objectId;
 @property (nonatomic) PFFile *itemPicture;
@@ -21,6 +26,7 @@
 @property (nonatomic) NSString *itemCategory;
 @property (nonatomic) NSString *itemDescription;
 @property (nonatomic) NSNumber *itemPrice;
+@property(nonatomic) NSString *user;
 
 +(NSString *)parseClassName;
 +(void)load;

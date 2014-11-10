@@ -15,7 +15,10 @@
 
 @end
 
-@implementation CreateAdViewController
+@implementation CreateAdViewController{
+    UIBarButtonItem *createButton;
+    NSMutableString *categoryName;
+}
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
     return 1;
@@ -29,29 +32,18 @@
     return [self.categoryData[row] objectForKey:@"categoryName"];
 }
 
-//- (IBAction)addPicture:(id)sender {
-//        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-//        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        picker.delegate = self;
-//        [self presentModalViewController:picker animated:YES];
-//}
-
-//- (void)imagePickerController:(UIImagePickerController *)picker
-//            didFinishPickingImage:(UIImage *)image
-//                      editingInfo:(NSDictionary *)editingInfo
-//{
-//    imageView.image = image;
-//    [[picker parentViewController] dismissModalViewControllerAnimated:YES];
-//}
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    categoryName = [self.categoryData[row] objectForKey:@"categoryName"];
+}
 
 - (IBAction)postButton:(id)sender {
     Item *item = [Item new];
     //item.filename = ...
-    item.itemCategory = self.addCategory.text;
-    item.itemDescription = self.addDescription.text;
-    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
-    [f setNumberStyle:NSNumberFormatterDecimalStyle];
-   //item.price = [f numberFromString: self.price.text];
+//    item.itemCategory = self.addCategory.text;
+//    item.itemDescription = self.addDescription.text;
+//    NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+//    [f setNumberStyle:NSNumberFormatterDecimalStyle];
+    //item.price = [f numberFromString: self.price.text];
     
     [self.delegate addItem:item];
 }
@@ -61,24 +53,58 @@
     //self.categoryData = [NSMutableArray arrayWithObjects:@"Hi", @"Bye", nil];
     
     __weak id weakSelf = self;
-
     
     PFQuery *query = [PFQuery queryWithClassName: [CategoryGroup parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %ld categories.", objects.count);
+            NSLog(@"Successfully retrieved %ld scores.", objects.count);
             // Do something with the found objects
             [weakSelf setCategoryData:[NSMutableArray arrayWithArray:objects]];
-            NSLog(@"%@", [weakSelf categoryData]);
-            [[weakSelf picker] reloadAllComponents];
+            //NSLog(@"%@", [weakSelf itemCategory]);
+            [[weakSelf categoryPickData] reloadAllComponents];
             
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+    
+    self.navigationController.title = @"Add new customer";
+    createButton = [[UIBarButtonItem alloc] initWithTitle:@"Create"
+                                                    style:UIBarButtonItemStylePlain
+                                                   target:self
+                                                   action:@selector(createNewAd)];
+    self.navigationItem.rightBarButtonItem = createButton;
 
+    
+}
+
+-(void)createNewAd{
+    //if ([self validateInput]) {
+        //createButton.enabled = NO;
+        Item *newItem = [[Item alloc] initWIthName:self.itemName.text
+                                             image: self.image
+                                          category: categoryName
+                                       description:self.itemDescription.text
+                                             price: [NSNumber numberWithFloat:[self.itemPrice.text floatValue]]
+                                              user: [PFUser currentUser].username];
+    [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
+        if (succeeded) {
+            NSLog(@"Item SAVED");
+        }
+        if (error) {
+            NSLog(@"%@", error);
+        }
+    
+    }];
+        //[self createContact:customer];
+                  //       [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {}];
+//            OSCustomersTableVC *prev = (OSCustomersTableVC*)[self backViewController];
+//            [prev loadObjects];
+//            [self.navigationController popViewControllerAnimated:YES];
+//        }];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
