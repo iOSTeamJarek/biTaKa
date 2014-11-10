@@ -62,10 +62,8 @@
     // initialize location manager
     [self initializeLocationManager];
     [locationManager startUpdatingLocation];
-    //self.categoryData = [NSMutableArray arrayWithObjects:@"Hi", @"Bye", nil];
     
     __weak id weakSelf = self;
-    
     
     PFQuery *query = [PFQuery queryWithClassName: [CategoryGroup parseClassName]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
