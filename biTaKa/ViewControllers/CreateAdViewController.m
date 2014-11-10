@@ -10,6 +10,7 @@
 #import "CategoryGroup.h"
 #import "AlertUtility.h"
 #import <CoreLocation/CoreLocation.h>
+#import "MainAdViewController.h"
 
 @interface CreateAdViewController ()
 
@@ -92,29 +93,25 @@
 
 -(void)createNewAd{
     //if ([self validateInput]) {
-        //createButton.enabled = NO;
         Item *newItem = [[Item alloc] initWIthName:self.itemName.text
                                              image: self.image
                                           category: categoryName
                                        description:self.itemDescription.text
                                              price: [NSNumber numberWithFloat:[self.itemPrice.text floatValue]]
                                               user: [PFUser currentUser].username];
+    newItem[@"state"] = [NSNumber numberWithBool:YES];
     [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error){
         if (succeeded) {
-            NSLog(@"Item SAVED");
+            MainAdViewController *mainLoggedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"logedMain"];
+            [self.navigationController pushViewController:mainLoggedVC animated:YES];
+
         }
         if (error) {
             NSLog(@"%@", error);
         }
     
     }];
-        //[self createContact:customer];
-                  //       [newItem saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {}];
-//            OSCustomersTableVC *prev = (OSCustomersTableVC*)[self backViewController];
-//            [prev loadObjects];
-//            [self.navigationController popViewControllerAnimated:YES];
-//        }];
-//    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

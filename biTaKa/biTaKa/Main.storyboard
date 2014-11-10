@@ -608,34 +608,22 @@
                                 <rect key="frame" x="7" y="197" width="361" height="450"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="theCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="143" id="LMB-Nn-P7l" customClass="ItemTableViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="362" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="CVg-ff-ehX" customClass="customTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LMB-Nn-P7l" id="5pQ-1C-RGZ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CVg-ff-ehX" id="zSO-oX-te3">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price: $123.88" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ojy-w1-JYq">
-                                                    <rect key="frame" x="152" y="12" width="194" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arw-2p-EZ4">
+                                                    <rect key="frame" x="30" y="31" width="309" height="72"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P78-8e-5bc">
-                                                    <rect key="frame" x="152" y="40" width="201" height="95"/>
-                                                    <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43y-Td-h36">
-                                                    <rect key="frame" x="8" y="8" width="136" height="128"/>
-                                                </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellItemDescription" destination="P78-8e-5bc" id="V9O-YO-LQ5"/>
-                                            <outlet property="cellItemImage" destination="43y-Td-h36" id="mv3-M5-Kcg"/>
-                                            <outlet property="cellItemPrice" destination="Ojy-w1-JYq" id="KEu-QB-jvL"/>
+                                            <outlet property="lbDescription" destination="arw-2p-EZ4" id="eOk-j9-qie"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

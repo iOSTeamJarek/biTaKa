@@ -8,8 +8,8 @@
 
 #import "ProfileViewController.h"
 #import "AlertUtility.h"
-#import "ItemTableViewCell.h"
-
+#import "customTableViewCell.h"
+#import "Item.h"
 @interface ProfileViewController ()
 
 @end
@@ -31,28 +31,28 @@
     //NSLog(@"%@", self.data);
 }
 
-static NSString *cellIdentifier= @"theCell";
+static NSString *cellIdentifier= @"cell";
 
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ItemTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+-(customTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    customTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(!cell){
-        cell = [[ItemTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[customTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
     Item *it = [self.data objectAtIndex:indexPath.row];
-    
-    cell.cellItemDescription.text = it.itemDescription;
-    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
-    [fmt setPositiveFormat:@"0.##"];
-    cell.cellItemPrice.text = [NSString stringWithFormat:@"Price: $%@",
-                               [fmt stringFromNumber:[NSNumber numberWithFloat:[it.itemPrice floatValue]]]];
-    PFFile *thumbnail = it.itemPicture;
-    __weak UIImageView *cellImageView = cell.cellItemImage;
-    [thumbnail getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
-        //[cell.cellItemImage.layer addAnimation:[self getImageTransition] forKey:nil];
-        cellImageView.image = image;
-    }];
+    cell.lbDescription.text = it.description;
+//    cell.cellItemDescription.text = it.itemDescription;
+//    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+//    [fmt setPositiveFormat:@"0.##"];
+//    cell.cellItemPrice.text = [NSString stringWithFormat:@"Price: $%@",
+//                               [fmt stringFromNumber:[NSNumber numberWithFloat:[it.itemPrice floatValue]]]];
+//    PFFile *thumbnail = it.itemPicture;
+//    __weak UIImageView *cellImageView = cell.cellItemImage;
+//    [thumbnail getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+//        UIImage *image = [UIImage imageWithData:data];
+//        //[cell.cellItemImage.layer addAnimation:[self getImageTransition] forKey:nil];
+//        cellImageView.image = image;
+    //}];
     
     return cell;
 }
