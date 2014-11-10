@@ -42,7 +42,6 @@
                                 </state>
                                 <connections>
                                     <action selector="guestBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PYC-82-FAR"/>
-                                    <segue destination="eF0-F1-QLc" kind="show" identifier="guestSegue" id="RTj-4c-0JF"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7Wp-eG-Q5X" userLabel="Username">

@@ -35,8 +35,8 @@
             }
             else if (user) {
                 MainAdViewController *mainLoggedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"logedMain"];
+                mainLoggedVC.items = self.dataToSend;
                 [self.navigationController pushViewController:mainLoggedVC animated:YES];
-                
             }
         }];
     }
@@ -49,6 +49,27 @@
 }
 
 - (IBAction)guestBtn:(id)sender {
+    MainAdViewController *mainLoggedVC = [self.storyboard instantiateViewControllerWithIdentifier:@"logedMain"];
+    mainLoggedVC.items = self.dataToSend;
+    [self.navigationController pushViewController:mainLoggedVC animated:YES];
+}
+
+-(void) makeQueryForTableView{
+    __weak id weakSelf = self;
+    
+    PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            // NSLog(@"Successfully retrieved %ld items.", objects.count);
+            // Do something with the found objects
+            [weakSelf setDataToSend:[NSMutableArray arrayWithArray:objects]];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
     
 }
 
@@ -59,6 +80,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self makeQueryForTableView];
     
     self.title = @"biTaKa";
     self.navigationItem.hidesBackButton = YES;

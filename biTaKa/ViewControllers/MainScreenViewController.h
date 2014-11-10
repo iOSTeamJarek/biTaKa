@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *regBtn;
 @property (weak, nonatomic) IBOutlet UIButton *guestBtn;
 
+@property(nonatomic) NSMutableArray *dataToSend;
 @end

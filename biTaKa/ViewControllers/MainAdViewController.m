@@ -22,7 +22,9 @@
 
 @end
 
-@implementation MainAdViewController
+@implementation MainAdViewController{
+    UIRefreshControl *refreshControl;
+}
 
 -(instancetype)init{
     self = [super init];
@@ -77,8 +79,33 @@ static NSString* cellIdentifier = @"itemCell";
     return cell;
 }
 
+-(void)getDataFromCoreData{
+    __weak id weakSelf = self;
+    
+    PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
+    [query orderByDescending:@"createdAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            // NSLog(@"Successfully retrieved %ld items.", objects.count);
+            // Do something with the found objects
+            [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
+    [self.itemTableView reloadData];
+    [refreshControl endRefreshing];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(getDataFromCoreData) forControlEvents:UIControlEventValueChanged];
+    [self.itemTableView addSubview:refreshControl];
     
     // check for authenticate user
     PFUser *user = [PFUser currentUser];
@@ -88,25 +115,6 @@ static NSString* cellIdentifier = @"itemCell";
     }else{
         [self setLoginButton];
     }
-    
-    __weak id weakSelf = self;
-    // parse query
-    PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %ld items.", objects.count);
-            // Do something with the found objects
-            [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
-            [[weakSelf itemTableView] reloadData];
-            [self initializeCoreData];
-            // [self addDataToCoreData];
-            [self fetchRequest];
-        } else {
-            // Log details of the failure
-            NSLog(@"Error: %@ %@", error, [error userInfo]);
-        }
-    }];
 }
 
 // CORE DATA
@@ -238,7 +246,7 @@ static NSString* cellIdentifier = @"itemCell";
 
 -(CATransition*)getImageTransition{
     CATransition *trans = [CATransition animation];
-    trans.duration = 1.5f;
+    trans.duration = 0.5f;
     trans.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
     trans.type = kCATransitionFade;
     return trans;
