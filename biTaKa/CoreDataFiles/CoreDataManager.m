@@ -43,7 +43,7 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
     
     if (_store) {
         return;
-    } // Don’t load store if it's already loaded
+    }
     
     NSError *error = nil;
     _store = [_coordinator addPersistentStoreWithType:NSSQLiteStoreType
@@ -91,7 +91,7 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
 
 - (NSURL *)applicationStoresDirectory
 {
-    //sNSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     NSURL *storesDirectory =
     [[NSURL fileURLWithPath:[self applicationDocumentsDirectory]]

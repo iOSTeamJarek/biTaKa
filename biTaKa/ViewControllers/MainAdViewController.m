@@ -177,15 +177,6 @@ static NSString* cellIdentifier = @"itemCell";
     
 }
 
--(void)alertMessage:(NSString*)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: message
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
-    [alert show];
-}
-
 #pragma mark - CreateAddViewControllerDelegate
 
 -(void)addItem:(Item *)item {
@@ -198,7 +189,9 @@ static NSString* cellIdentifier = @"itemCell";
     
     [parseObject saveInBackground];
     
-    [self alertMessage:@"item added"];
+    [AlertUtility alertWith:@"Message"
+                    message:@"Item added"
+                  andButton:@"OK"];
     //[[self itemTableView] reloadData];
     
     [self.navigationController popViewControllerAnimated:YES];

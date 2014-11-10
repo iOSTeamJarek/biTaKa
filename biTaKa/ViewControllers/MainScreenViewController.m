@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Admin. All rights reserved.
 //
 
-#import "MainScreenViewController.h"
 #import "Parse/Parse.h"
+#import "MainScreenViewController.h"
+#import "RegisterViewController.h"
 #import "MainAdViewController.h"
 #import "AlertUtility.h"
 #import "CoreDataManager.h"
@@ -102,13 +103,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)alertMessage:(NSString*)message {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                    message: message
-                                                   delegate:self
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles: nil];
-    [alert show];
+#pragma mark gesture
+
+- (IBAction)swipe:(UISwipeGestureRecognizer *)recognizer {
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft){
+        RegisterViewController *registerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"registerView"];
+        [self.navigationController pushViewController:registerVC animated:YES];
+    }
 }
 
 @end

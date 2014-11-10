@@ -101,6 +101,9 @@
                             <constraint firstItem="7Wp-eG-Q5X" firstAttribute="leading" secondItem="MWk-Fk-kG7" secondAttribute="leading" id="yte-0m-3Nr"/>
                             <constraint firstItem="sbX-vN-ysU" firstAttribute="top" secondItem="7Wp-eG-Q5X" secondAttribute="bottom" constant="15" id="zDV-jX-6Dn"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="zex-WS-fH5" appends="YES" id="cN0-yj-MW6"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="c8T-hM-cgh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -113,6 +116,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="zex-WS-fH5">
+                    <connections>
+                        <action selector="swipe:" destination="BYZ-38-t0r" id="1nv-oM-AwW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-151.5" y="-341.5"/>
         </scene>
@@ -219,7 +227,7 @@
         <!--Register View Controller-->
         <scene sceneID="4Gp-hH-0IN">
             <objects>
-                <viewController id="HHR-Tz-cYh" customClass="RegisterViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerView" id="HHR-Tz-cYh" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HT5-VO-mKk"/>
                         <viewControllerLayoutGuide type="bottom" id="s9e-tP-SrQ"/>
@@ -303,6 +311,9 @@
                             <constraint firstItem="IgG-aC-cef" firstAttribute="top" secondItem="j83-Ks-S2O" secondAttribute="bottom" constant="26" id="vCT-aq-fey"/>
                             <constraint firstItem="frV-ys-s5F" firstAttribute="trailing" secondItem="X6C-fY-SNb" secondAttribute="trailing" id="zwG-5x-F3m"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Xq7-GD-Xmy" appends="YES" id="g95-f7-WaZ"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="yZF-zn-REh"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -314,6 +325,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fje-JD-iPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="Xq7-GD-Xmy">
+                    <connections>
+                        <action selector="swipe:" destination="HHR-Tz-cYh" id="xXh-mz-kJw"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="340.5" y="-341.5"/>
         </scene>

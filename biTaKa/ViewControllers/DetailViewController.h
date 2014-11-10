@@ -21,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbItemSeller;
 @property (weak, nonatomic) IBOutlet UILabel *lbItemContact;
 @property (weak, nonatomic) IBOutlet UILabel *lbItemDescription;
+
 @end

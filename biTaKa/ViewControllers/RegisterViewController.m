@@ -53,7 +53,7 @@
                 [self.navigationController pushViewController:loginVC animated:YES];
             }
             else {
-               // NSLog(@"There was an error in registration");
+               NSLog(@"There was an error in registration");
             }
         }];
     }
@@ -77,13 +77,13 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)alertMessage:(NSString*)message {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
-                                                        message: message
-                                                       delegate:self
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles: nil];
-        [alert show];
+#pragma mark gesture
+
+- (IBAction)swipe:(UISwipeGestureRecognizer *)recognizer {
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionRight){
+        MainScreenViewController *loginVC = [self.storyboard instantiateViewControllerWithIdentifier:@"login"];
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
 }
 
 @end

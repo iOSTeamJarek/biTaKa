@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainScreenViewController : UIViewController
+@interface MainScreenViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *password;
@@ -17,4 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *guestBtn;
 
 @property(nonatomic) NSMutableArray *dataToSend;
+
 @end
