@@ -19,8 +19,6 @@
 
 @implementation CreateAdViewController{
     CLLocationManager *locationManager;
-}
-@implementation CreateAdViewController{
     UIBarButtonItem *createButton;
     NSMutableString *categoryName;
 }
