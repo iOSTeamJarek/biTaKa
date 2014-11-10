@@ -15,6 +15,7 @@
 #import "AlertUtility.h"
 #import "CoreDataManager.h"
 #import "CoreDataItem.h"
+#import "ProfileViewController.h"
 
 @interface MainAdViewController ()
 
@@ -30,6 +31,7 @@
     self = [super init];
     if(self){
         self.items = [NSMutableArray array];
+        self.profileDate = [NSMutableArray array];
     }
     return self;
 }
@@ -37,6 +39,7 @@
 -(id)initWithCoder:(NSCoder *)aDecoder{
     if(self = [super initWithCoder:aDecoder]){
         self.items = [NSMutableArray array];
+         self.profileDate = [NSMutableArray array];
     }
     return self;
 }
@@ -45,6 +48,7 @@
     
     if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]){
         self.items = [NSMutableArray array];
+         self.profileDate = [NSMutableArray array];
     }
     return self;
 }
@@ -84,11 +88,9 @@ static NSString* cellIdentifier = @"itemCell";
     
     PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
     [query orderByDescending:@"createdAt"];
+    [query whereKey:@"state" equalTo:[NSNumber numberWithBool:YES]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            // NSLog(@"Successfully retrieved %ld items.", objects.count);
-            // Do something with the found objects
             [weakSelf setItems:[NSMutableArray arrayWithArray:objects]];
         } else {
             // Log details of the failure
@@ -216,6 +218,13 @@ static NSString* cellIdentifier = @"itemCell";
                                                                     action:@selector(logoutEvent:)];
     
     self.navigationItem.leftBarButtonItem = logOutButton;
+    
+    UIBarButtonItem *profileButton = [[UIBarButtonItem alloc] initWithTitle:@"Profile"
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(profileEvent:)];
+    self.navigationItem.rightBarButtonItem = profileButton;
+
 }
 
 - (void) loginEvent:(id)sender
@@ -225,6 +234,28 @@ static NSString* cellIdentifier = @"itemCell";
     
 }
 
+-(void) profileEvent:(id) sender{
+    
+    NSString *userName = [PFUser currentUser].username;
+    PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"user" equalTo:userName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %ld items.", objects.count);
+            // Do something with the found objects
+            [self setProfileDate:[NSMutableArray arrayWithArray:objects]];
+            ProfileViewController *profileVC = [self.storyboard instantiateViewControllerWithIdentifier:@"profileLoad"];
+            profileVC.data = self.profileDate;
+            [self.navigationController pushViewController:profileVC animated:YES];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 - (void) setLoginButton {
     UIBarButtonItem *loginButton = [[UIBarButtonItem alloc] initWithTitle:@"Login"
                                                                     style:UIBarButtonItemStylePlain
@@ -232,6 +263,28 @@ static NSString* cellIdentifier = @"itemCell";
                                                                    action:@selector(loginEvent:)];
     
     self.navigationItem.leftBarButtonItem = loginButton;
+}
+
+-(void) makeQueryForTableView{
+    __weak id weakSelf = self;
+    PFUser *user = [PFUser currentUser];
+    
+    PFQuery *query = [PFQuery queryWithClassName: [Item parseClassName]];
+    [query orderByDescending:@"createdAt"];
+    NSLog(@"%@", user.username);
+    [query whereKey:@"user" equalTo:user.username];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+             NSLog(@"Successfully retrieved %ld items.", objects.count);
+            // Do something with the found objects
+            [weakSelf setProfileDate:[NSMutableArray arrayWithArray:objects]];
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+    
 }
 
 - (IBAction)btnNewAd:(id)sender {
