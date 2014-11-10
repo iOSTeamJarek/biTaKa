@@ -19,8 +19,6 @@
 
 @implementation CreateAdViewController{
     CLLocationManager *locationManager;
-}
-@implementation CreateAdViewController{
     UIBarButtonItem *createButton;
     NSMutableString *categoryName;
 }
@@ -63,7 +61,7 @@
     
     // initialize location manager
     [self initializeLocationManager];
-    
+    [locationManager startUpdatingLocation];
     //self.categoryData = [NSMutableArray arrayWithObjects:@"Hi", @"Bye", nil];
     
     __weak id weakSelf = self;
@@ -73,7 +71,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %ld scores.", objects.count);
+            NSLog(@"Successfully retrieved %ld items.", objects.count);
             // Do something with the found objects
             [weakSelf setCategoryData:[NSMutableArray arrayWithArray:objects]];
             //NSLog(@"%@", [weakSelf itemCategory]);
@@ -92,7 +90,6 @@
                                                    action:@selector(createNewAd)];
     self.navigationItem.rightBarButtonItem = createButton;
 
-    
 }
 
 -(void)createNewAd{

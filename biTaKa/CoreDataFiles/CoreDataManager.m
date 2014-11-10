@@ -14,7 +14,7 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
 
 - (id)init
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     self = [super init];
     
@@ -32,14 +32,14 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
 
 - (NSURL *)storeURL
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     return [[self applicationStoresDirectory] URLByAppendingPathComponent:storeFilename];
 }
 
 - (void)loadStore
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     if (_store) {
         return;
@@ -62,20 +62,20 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
 
 - (void)setupCoreData
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     [self loadStore];
 }
 
 - (NSString *)applicationDocumentsDirectory
 {
-    NSLog(@"Running %@ '%@'", self.class,NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class,NSStringFromSelector(_cmd));
     
     return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask,YES) lastObject];
 }
 
 - (void)saveContext
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     if ([_context hasChanges]) {
         NSError *error = nil;
@@ -91,7 +91,7 @@ NSString *storeFilename = @"ItemDatabase.sqlite";
 
 - (NSURL *)applicationStoresDirectory
 {
-    NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
+    //sNSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));
     
     NSURL *storesDirectory =
     [[NSURL fileURLWithPath:[self applicationDocumentsDirectory]]
